@@ -1,0 +1,74 @@
+﻿<div ng-controller="householdController">
+    {{joinHousehold}}
+    <div ng-show="!joinHousehold">
+        <form name="h" class="form-horizontal" ng-submit="createHousehold({Name: newHousehold})">
+            <div class="admin-form">
+                <div class="container">
+                    <div class="row">
+                        <div class="widget">
+                            <div class="widget-head">
+                                <i class="fa fa-cogs"></i> Create a new Household
+                            </div>
+                            <div class="widget-content">
+                                <div class="padd">
+                                    <!-- Create New Household -->
+                                    <div class="row padd">
+                                        <p>Words to explain households.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">House Name:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" ng-model="newHousehold">
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-info" ng-submit title="Submit to create and join a new household.">Submit</button>
+                                        <button class="btn btn-default" ng-click="joinHousehold = !joinHousehold" title="Switch form to join existing household."> Join Existing Household</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div> <!-- End of New Household-->
+    <!-- Join Existing Household -->
+    <div ng-show="joinHousehold">
+        <form name="h" class="form-horizontal" ng-submit="joinHousehold({Name: newHousehold})">
+            <div class="admin-form">
+                <div class="container">
+                    <div class="row">
+                        <div class="widget">
+                            <div class="widget-head">
+                                <i class="fa fa-cogs"></i> Join Household
+                            </div>
+                            <div class="widget-content">
+                                <div class="padd">
+                                    <!-- Create New Household -->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">House Name:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" ng-model="newHousehold">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">Invitation:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" ng-model="newHousehold">
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-info" ng-submit title="Submit to join an existing household.">Submit</button>
+                                        <button class="btn btn-default" ng-click="joinHousehold = !joinHousehold" title="Switch form to join existing household."> Create New Household </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div> <!-- End of Join Household-->
+</div>

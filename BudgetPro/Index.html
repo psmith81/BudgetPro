@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BudgetPro</title>
+    <!-- Stylesheets -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome icon -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <!-- Calendar
+    <link rel="stylesheet" href="/css/fullcalendar.css">
+    <!-- prettyPhoto -->
+    <link rel="stylesheet" href="/css/prettyPhoto.css">
+    <!-- Star rating -->
+    <link rel="stylesheet" href="/css/rateit.css">
+    <!-- Date picker -->
+    <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css">
+    <!-- CLEditor -->
+    <link rel="stylesheet" href="/css/jquery.cleditor.css">
+    <!-- Data tables -->
+    <link rel="stylesheet" href="/css/jquery.dataTables.css">
+    <!-- Bootstrap toggle -->
+    <link rel="stylesheet" href="/css/jquery.onoff.css">
+    <!-- Main stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">-->
+    <!-- Widgets stylesheet -->
+    <link href="/css/widgets.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet" />
+
+    <script src="/js/respond.min.js"></script>
+
+</head>
+<body>
+    <div ng-app="app" class="app">
+        <div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+            <!-- Menu button for smallar screens -->
+            <div class="navbar-header">
+                <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span>Menu</span>
+                </button>
+                <!-- Site name for smallar screens -->
+                <!--<a href="index.html" class="navbar-brand hidden-lg"></a>-->
+            </div>
+
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <a href="index.html" class="navbar-brand">BudgetPro</a>
+                <ul class="nav navbar-nav">
+                    <li></li>
+                    <li class="dropdown dropdown-big">
+                        <a ui-sref="home.dashboard" href="">Home!</a>
+                    </li>
+                    <li class="dropdown dropdown-big">
+                        <a ui-sref="about" href="">About!</a>
+                    </li>
+                </ul>
+                <div  class="btn-group" dropdown>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown-toggle" dropdown-toggle>
+                            <a class="dropdown-toggle"  href="#">Tools</a>
+                        </li>
+                    </ul>
+                    <ul class="dropdown-menu">
+                        <li><a href="">Invite</a></li>
+                        <li><a ui-sref="accounts" href="">Manage Accounts</a></li>
+                    </ul>
+                </div>
+
+                    <ng-include src="'/NgApp/Views/partials/accesspartial.html'"> </ng-include>
+            </nav>
+        </div>
+
+        <div ui-view class="view">
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="NgApp/Core/angular.min.js"></script>
+    <script src="NgApp/Core/angular-ui-router.min.js"></script>
+    <script src="NgApp/Core/angular-local-storage.js"></script>
+    <script src="NgApp/app.js"></script>
+    <script src="NgApp/Services/authService.js"></script>
+    <script src="NgApp/Services/authInterceptorSvc.js"></script>
+    <script src="NgApp/Services/householdSvc.js"></script>
+    <script src="NgApp/Controllers/homeController.js"></script>
+    <script src="NgApp/Controllers/aboutController.js"></script>
+    <script src="NgApp/Services/accountSvc.js"></script>
+    <!--<script src="NgApp/Controllers/loginController.js"></script>
+    <script src="NgApp/Controllers/logoutController.js"></script>
+    <script src="NgApp/Controllers/registerController.js"></script>-->
+    <script src="NgApp/Controllers/accessController.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="NgApp/Controllers/accountSummariesController.js"></script>
+    <script src="NgApp/Controllers/recentTransactionsController.js"></script>
+    <script src="NgApp/Controllers/newTransactionController.js"></script>
+    <script src="NgApp/Controllers/householdController.js"></script>
+</body>
+</html>

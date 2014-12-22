@@ -1,0 +1,22 @@
+﻿<div class="widget-head">
+    <div class="pull-left">Recent Transactions</div>
+    <div class="widget-icons pull-right">
+        <a href="" ng-click="transIsCol = !transIsCol"><i class="fa fa-chevron-up"></i></a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div collapse="transIsCol">
+    <div class="ui-widget-content">
+        <hr />
+        <div ng-repeat="t in recentrans">
+            {{t.date}} - {{t.user}} - {{t.category}} - {{t.amount| currency}}<br />
+            {{t.description}}
+            <hr />
+        </div>
+
+    </div>
+</div>
+<div class="widget-foot">
+
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,44 @@
+﻿<div ng-controller="homeController">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-1">
+            <!-- Accounts & Balances -->
+            <div class="row">
+                <div class="widget" ui-view="accountSummaries">
+
+                </div>
+            </div>
+            <!-- Recent Transactions  -->
+            <div class="row">
+                <div class="widget" ui-view="recentTransactions">
+
+                </div>
+            </div>
+        </div>
+        <!-- Budget Chart showing categories spending vs budget -->
+        <div class="col-md-7">
+            <div class="widget">
+                <div class="widget-head">
+                    <div class="pull-left">Spending versus Budget</div>
+                    <div class="widget-icons pull-right">
+                        <a href="" ng-click="graphIsCol = !graphIsCol"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div collapse="graphIsCol">
+                    <div class="widget-content">
+                        <div class="padd">
+                            <!-- Barchart. jQuery Flot plugin used. -->
+                            <div id="bar-chart"></div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-foot">
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
