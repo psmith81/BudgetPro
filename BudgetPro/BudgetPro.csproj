@@ -243,6 +243,7 @@
     <Compile Include="Models\DataInterfaces\IUserDataAccess.cs" />
     <Compile Include="Models\Data\Dbo\Account.cs" />
     <Compile Include="Models\Data\Dbo\Household.cs" />
+    <Compile Include="Models\Data\Dbo\Invitation.cs" />
     <Compile Include="Models\Data\Dbo\RecentTrans.cs" />
     <Compile Include="Models\Data\Dbo\Transaction.cs" />
     <Compile Include="Models\Stores\InsightUserStore.cs" />
@@ -291,6 +292,7 @@
     <Content Include="NgApp\Controllers\homeController.js" />
     <Content Include="NgApp\Controllers\aboutController.js" />
     <Content Include="NgApp\Controllers\householdController.js" />
+    <Content Include="NgApp\Controllers\invitationController.js" />
     <Content Include="NgApp\Controllers\newTransactionController.js" />
     <Content Include="NgApp\Controllers\recentTransactionsController.js" />
     <Content Include="NgApp\Core\angular-animate.js" />
@@ -1068,6 +1070,7 @@
     <Content Include="NgApp\Services\householdSvc.js" />
     <Content Include="NgApp\Views\About\about.html" />
     <Content Include="NgApp\Views\Account\household.html" />
+    <Content Include="NgApp\Views\Account\invitation.html" />
     <Content Include="NgApp\Views\Account\login.html" />
     <Content Include="NgApp\Views\Home\accounts.html" />
     <Content Include="NgApp\Views\Home\accountSummaries.html" />

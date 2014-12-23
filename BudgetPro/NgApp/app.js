@@ -58,6 +58,7 @@
                         .when('landing', '/landing')
                         .when('accounts', '/accounts')
                          .when('household', '/household')
+                         .when('invitation', '/invitation')
                         .otherwise('/');
 
                      // Use $stateProvider to configure your states.
@@ -129,7 +130,7 @@
                            url: "/accounts",
                            templateUrl: '/NgApp/Views/Home/accounts.html',
                            data: {
-                                 displayName: "About",
+                                 displayName: "accounts",
                                  authenticate: true
                            }  
                        })
@@ -141,6 +142,10 @@
                        .state("household", {
                            url: "/household",
                            templateUrl: '/NgApp/Views/Account/household.html'
+                       })
+                       .state("invitation", {
+                           url: "/invitation",
+                           templateUrl: '/NgApp/Views/Account/invitation.html'
                        })
 
                      $httpProvider.defaults.withCredentials = true;

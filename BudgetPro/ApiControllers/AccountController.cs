@@ -75,6 +75,12 @@ namespace BudgetPro.Controllers
             return Ok();
         }
 
-
+        [Route("newInvitation")]
+        [HttpPost]
+        public IHttpActionResult newInvitation(Invitation invite)
+        {
+            var results = accounts.InsertInvitation(invite);
+            return Ok(results);
+        }
     }
 }

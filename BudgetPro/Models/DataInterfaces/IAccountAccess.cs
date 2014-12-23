@@ -24,5 +24,10 @@ namespace BudgetPro.DataAccess
         void UpdateTransaction(Transaction trans);
         int InsertTransaction(Transaction trans);
 
+        Invitation SelectInvitation(int id);
+        void DeleteInvitation(int id);
+        void UpdateInvitation(Invitation trans);
+        int InsertInvitation(Invitation trans);
+
     }
 }

@@ -53,6 +53,7 @@ namespace BudgetPro.Controllers
         [AllowAnonymous]
         public async Task<bool> Register(UserRegistration newUser)
         {
+            if (ModelState.IsValid) { 
             var user = new AppUser()
             {
                 UserName = newUser.UserName,
@@ -69,6 +70,9 @@ namespace BudgetPro.Controllers
             //user.PasswordHash = "uhh";
 
             return result.Succeeded;
+            }
+            //return BadRequest("User was invalid.");
+            return false;
         }
 
         [Route("createHousehold")]

@@ -53,3 +53,7 @@ html{
     margin-top: 35px;
 }
     
+
+.clear {
+    clear: both;
+}

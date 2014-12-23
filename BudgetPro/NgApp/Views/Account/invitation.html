@@ -1,0 +1,33 @@
+﻿<div ng-controller="invitationController">
+    <form name="i" class="form-horizontal" ng-submit="newInvite()">
+        <div class="admin-form">
+            <div class="container">
+                <div class="row">
+                    <div class="widget">
+                        <div class="widget-head">
+                            <i class="fa fa-cogs"></i> Invitation.
+                        </div>
+                        <div class="widget-content">
+                            <div class="padd">
+                                <div class="row padd">
+                                    <p>Invite someone into your household.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">User's Email:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" ng-model="invitation.ToEmail" required value="{{invitation.ToEmail}}">
+                                    </div>
+                                </div>
+                                <div class="btn-group pull-right">
+                                    <button type="submit" class="btn btn-info" ng-submit title="Submit to send an invitation to join your household.">Submit</button>
+                                    <button type="button" class="btn btn-default" ui-sref="home.dashboard" title="Return without sending a invitation."> Return</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
