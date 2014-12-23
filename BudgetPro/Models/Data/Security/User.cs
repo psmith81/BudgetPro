@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
+using BudgetPro.Models;
 
 namespace CoderFoundry.InsightUserStore.Models
 {
@@ -26,18 +27,19 @@ namespace CoderFoundry.InsightUserStore.Models
 
         public AppUser()
         {
-
+            IsDeleted = false;
+            IsLockedOut = false;
+            LockoutEnabled = false;
         }
 
-        //public AppUser(RegisterViewModel registeration) : this()
-        //{
-        //    UserName = registeration.Username;
-        //    Name = registeration.Name;
-        //    Email = registeration.Email;
-        //    IsDeleted = false;
-        //    IsLockedOut = false;
-        //    LockoutEnabled = false;
-        //}
+        public AppUser(UserRegistration registeration)
+            : this()
+        {
+            UserName = registeration.UserName;
+            Name = registeration.Name;
+            Email = registeration.Email;
+            PhoneNumber = registeration.PhoneNumber;
+        }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser, int> manager, string authType)
         {

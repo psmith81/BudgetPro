@@ -9,6 +9,8 @@
 
                   authSvc.fillAuthData();
 
+                  //console.log(authSvc.getUserInfo());
+                    
                   //accountSvc.updateAcctBal(3);
                   //console.log = ('update result: [' + rst +']');
 
@@ -58,6 +60,7 @@
                         .when('landing', '/landing')
                         .when('accounts', '/accounts')
                          .when('household', '/household')
+                         .when('invitation', '/invitation')
                         .otherwise('/');
 
                      // Use $stateProvider to configure your states.
@@ -129,18 +132,24 @@
                            url: "/accounts",
                            templateUrl: '/NgApp/Views/Home/accounts.html',
                            data: {
-                                 displayName: "About",
+                                 displayName: "accounts",
                                  authenticate: true
                            }  
                        })
                        .state("newTransaction", {
-                           url: "/newTransaction",
-                           templateUrl: '/NgApp/Views/Home/newtransaction.html'
+                           url: "/accounts/:accountId/newTransaction",
+                           templateUrl: '/NgApp/Views/Home/newtransaction.html',
+                           conroller: 'newTransactionController'
                        })
                        .state("household", {
                            url: "/household",
                            templateUrl: '/NgApp/Views/Account/household.html'
                        })
+                       .state("invitation", {
+                           url: "/invitation",
+                           templateUrl: '/NgApp/Views/Account/invitation.html'
+                       })
+                     
 
                      $httpProvider.defaults.withCredentials = true;
                      $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

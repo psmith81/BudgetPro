@@ -14,6 +14,21 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
         claims: {}
     };
 
+    //var _getUserInfo = function () {
+    //    console.log('in getUserInfo');
+    //    var authData = localStorageService.get('authorizationData');
+    //    if (authData != null)
+    //        var rst = authData.userId;
+    //    else
+    //        var rst = "";
+    //    var userId = rst;
+    //    //console.log(userId);
+    //    return $http.post('/api/authentication/selectUser', userId).then(function (response) {
+    //        //console.log(response.data);
+    //        return response.data;
+    //    });
+    //}
+
     var _register = function (registration) {
         _logOut();
         return $http.post('/api/authentication/register', registration).then(function (response) {
@@ -79,6 +94,8 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
             _authentication.claims = authData.claims;
             _authentication.token = authData.token;
             _authentication.userId = authData.userId;
+            _authentication.email = authData.email;
+            _authentication.phoneNumber = authData.phoneNumber;
             _authentication.householdId = authData.householdId;
         }
     };
@@ -123,6 +140,13 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
         return rst;
     }
 
+    var _getUserInfo = function () {
+        console.log('in getUserInfo');
+        return $http.post('/api/authentication/getUserInfo').then(function (response) {
+            console.log(response.data);
+            return response.data;
+        });
+    }
     
     
     authServiceFactory.register = _register;
@@ -134,6 +158,7 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
     authServiceFactory.getUser = _getUser;
     authServiceFactory.getHousehold = _getHousehold;
     authServiceFactory.getUserId = _getUserId;
+    authServiceFactory.getUserInfo = _getUserInfo;
 
     return authServiceFactory;
 }]);

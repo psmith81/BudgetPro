@@ -50,6 +50,10 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
         //})
     }
 
+    var _isInvitation = function () {
+        return $http.post('/api/account/isInvitation');
+    }
+
     var _newInvitation = function (invite) {
         return $http.post('/api/account/newInvitation', invite)
         .then(function (responce) {
@@ -57,11 +61,14 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
         })
     }
 
+
+
     accountSvcFactory.addAccount = _addAccount;
     accountSvcFactory.getAccountsByHousehold = _getAccountsByHousehold;
     accountSvcFactory.addTransaction = _addTransaction;
     accountSvcFactory.getRecentTransByHousehold = _getRecentTransByHousehold;
     accountSvcFactory.updateAcctBal = _updateAcctBal;
+    accountSvcFactory.isInvitation = _isInvitation;
     accountSvcFactory.newInvitation = _newInvitation;
 
     return accountSvcFactory;

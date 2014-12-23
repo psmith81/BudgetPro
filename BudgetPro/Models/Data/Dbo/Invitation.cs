@@ -14,4 +14,6 @@ namespace BudgetPro.Models
         //[Required]
         public string ToEmail { get; set; }
     }
+
+   
 }

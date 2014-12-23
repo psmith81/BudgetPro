@@ -3,7 +3,7 @@
         <button class="btn btn-default btn-xs" ui-sref="accounts" href="">
             Accounts / Balances
         </button>
-        <button class="btn btn-default btn-xs" ng-click="balRefresh(3)" href="">Refresh</button>
+        <!--<button class="btn btn-default btn-xs" ng-click="balRefresh(3)" href="">Refresh</button>-->
     </div>
     <div class="widget-icons pull-right">
         <a href="" ng-click="acctIsCol = !acctIsCol"><i class="fa fa-chevron-up"></i></a>
@@ -12,7 +12,7 @@
 </div>
 <div collapse="acctIsCol">
     <div class="ui-widget-content">
-        <div ng-controller="newTransactionController">
+        <div >
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tr ng-repeat="m in houseaccts">
-                    <td><button title="New Transaction" class="btn btn-sm" ui-sref="newTransaction" ng-model="selectedAcct" ng-options="m">+</button> {{m.id}}</td>
+                    <td><button title="New Transaction" class="btn btn-sm" ui-sref="newTransaction({accountId: {{m.id}} })">+</button></td>
                     <td>{{m.name}}</td>
                     <td>{{m.balance | currency}}</td>
                     <td>{{m.reconciledBalance | currency}}</td>

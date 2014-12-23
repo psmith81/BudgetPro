@@ -42,19 +42,34 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
     }
 
     var _updateAcctBal = function (accId) {
-        console.log('Updating Balances for account: ' + accId);
-        return $http.post('/api/account/updateAccountBalances');
+        //console.log('Updating Balances for account: ' + accId); 
+        return $http.post('/api/account/updateAccountBalances', accId);
         //.then(function (response) {
         //    console.log(response.data);
         //    return response.data;
         //})
     }
 
+    var _isInvitation = function () {
+        return $http.post('/api/account/isInvitation');
+    }
+
+    var _newInvitation = function (invite) {
+        return $http.post('/api/account/newInvitation', invite)
+        .then(function (responce) {
+            return responce.data;
+        })
+    }
+
+
+
     accountSvcFactory.addAccount = _addAccount;
     accountSvcFactory.getAccountsByHousehold = _getAccountsByHousehold;
     accountSvcFactory.addTransaction = _addTransaction;
     accountSvcFactory.getRecentTransByHousehold = _getRecentTransByHousehold;
     accountSvcFactory.updateAcctBal = _updateAcctBal;
+    accountSvcFactory.isInvitation = _isInvitation;
+    accountSvcFactory.newInvitation = _newInvitation;
 
     return accountSvcFactory;
 }]);

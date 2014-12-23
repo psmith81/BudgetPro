@@ -11,6 +11,8 @@ using Insight.Database;
 using BudgetPro.DataAccess;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+
 
 namespace BudgetPro.Controllers
 {
@@ -25,6 +27,7 @@ namespace BudgetPro.Controllers
         {
             // Creates connection to SQL
             accounts = HttpContext.Current.GetOwinContext().Get<SqlConnection>().As<IAccountAccess>();
+
         }
 
         [Route("addAccount")]
@@ -81,6 +84,17 @@ namespace BudgetPro.Controllers
         {
             var results = accounts.InsertInvitation(invite);
             return Ok(results);
+        }
+
+        [Route("isInvitation")]
+        [HttpPost]
+        public bool isInvitation()
+        {
+            //var email = UserManager.GetEmail(HttpContext.Current.User.Identity.GetUserId<int>());
+            var user = UserManager.FindById(HttpContext.Current.User.Identity.GetUserId<int>());
+            var email = user.Email;
+            var result = accounts.IsInvitation(user.Email);
+            return result;
         }
     }
 }

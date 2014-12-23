@@ -31,6 +31,9 @@ namespace CoderFoundry.InsightUserStore.DataAccess
 
         int InsertHousehold(Household entry);
 
+
+        UserInfo GetUserInfo(int userId);
+
         // auto procs
         Task<AppUser> SelectUserAsync(int id);
         Task DeleteUserAsync(int id);

@@ -100,6 +100,8 @@ namespace BudgetPro.Providers
             {
                 { "claims", JsonConvert.SerializeObject(oAuthIdentity.Claims.Select(X=> new { ClaimType = X.Type, ClaimValue = X.Value}), new KeyValuePairConverter( ) )},
                 {"userId", user.Id.ToString()},
+                {"email", user.Email},
+                {"phoneNumber", user.PhoneNumber},
                 {"householdId", user.HouseholdId.ToString()}
             };
             return new AuthenticationProperties(data);

@@ -2,7 +2,7 @@
     function ($scope, authSvc, accountSvc, $state, $stateParams) {
 
         $scope.debit = true;
-        $scope.selectdAcct = "1";
+        $scope.selectedAcct = $stateParams.accountId;
 
         $scope.newTrans = {
             AccountId: null,
@@ -32,11 +32,9 @@
         //console.log($scope.houseaccts);
 
         $scope.newTransaction = function () {
-            console.log($scope.selectdAcct)
             var cdf = new Date();
-            //var cd = cdf.g + "/" + cdf.getDate() + "/" + cdf.getFullYear();
             var cd = cdf.toDateString();
-            console.log("newTransaction");
+            $scope.newTrans.AccountId = $scope.selectedAcct;
             if ($scope.debit) {
                 $scope.newTrans.SignedAmount = $scope.newTrans.Amount * -1;
             } else {
@@ -46,7 +44,7 @@
             $scope.newTrans.Updated = cd;
             $scope.newTrans.UpdatedByUserId = authSvc.getUserId();
             $scope.newTrans.HouseholdId = authSvc.getHousehold();
-            console.log($scope.newTrans)
+            //console.log($scope.newTrans)
             accountSvc.addTransaction($scope.newTrans).then(function () {
                 //accountSvc.updateAccountBalances($scope.newTrans.AccountId);
                 $state.go('home.dashboard');

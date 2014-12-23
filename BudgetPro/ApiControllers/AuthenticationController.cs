@@ -54,25 +54,22 @@ namespace BudgetPro.Controllers
         public async Task<bool> Register(UserRegistration newUser)
         {
             if (ModelState.IsValid) { 
-            var user = new AppUser()
-            {
-                UserName = newUser.UserName,
-                Name = newUser.Name,
-                PhoneNumber = newUser.PhoneNumber,
-                Email = newUser.Email,
-                IsLockedOut = false,
-                IsDeleted = false
-            };
+            var user = new AppUser(newUser);
 
             var result = await UserManager.CreateAsync(user, newUser.Password);
-
-            //var u = await _userData.SelectUserAsync(2);
-            //user.PasswordHash = "uhh";
 
             return result.Succeeded;
             }
             //return BadRequest("User was invalid.");
             return false;
+        }
+
+        [Route("selectUser")]
+        [HttpPost]
+        public Task<AppUser> SelectUser([FromBody] int userId)
+        {
+            var result = _userData.SelectUserAsync(userId);
+            return result;
         }
 
         [Route("createHousehold")]
@@ -83,10 +80,6 @@ namespace BudgetPro.Controllers
             _userData.AddUserToHousehold(HttpContext.Current.User.Identity.GetUserId<int>(), householdId);
             return newHousehold.Id;
         }
-
-        //[Route("joinHousehold")]
-        //[HttpPost]
-        //public in
 
         [Route("getHousehold")]
         [HttpGet]
@@ -102,6 +95,14 @@ namespace BudgetPro.Controllers
             _userData.RemoveUserFromHousehold(HttpContext.Current.User.Identity.GetUserId<int>());
         }
 
+        [Route("getUserInfo")]
+        [HttpPost]
+        public UserInfo getUserInfo()
+        {
+            return _userData.GetUserInfo(HttpContext.Current.User.Identity.GetUserId<int>());
+        }
+
+       
  
     }
 }

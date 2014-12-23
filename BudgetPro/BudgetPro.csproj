@@ -246,6 +246,7 @@
     <Compile Include="Models\Data\Dbo\Invitation.cs" />
     <Compile Include="Models\Data\Dbo\RecentTrans.cs" />
     <Compile Include="Models\Data\Dbo\Transaction.cs" />
+    <Compile Include="Models\Data\Dbo\UserInfo.cs" />
     <Compile Include="Models\Stores\InsightUserStore.cs" />
     <Compile Include="Models\Data\Security\User.cs" />
     <Compile Include="Models\Data\Security\UserClaim.cs" />

@@ -9,6 +9,8 @@
 
                   authSvc.fillAuthData();
 
+                  //console.log(authSvc.getUserInfo());
+                    
                   //accountSvc.updateAcctBal(3);
                   //console.log = ('update result: [' + rst +']');
 
@@ -147,6 +149,7 @@
                            url: "/invitation",
                            templateUrl: '/NgApp/Views/Account/invitation.html'
                        })
+                     
 
                      $httpProvider.defaults.withCredentials = true;
                      $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

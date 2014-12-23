@@ -11,7 +11,8 @@ namespace BudgetPro.DataAccess
     {
         List<Account> GetAccountsByHousehold(int householdId);
         List<RecentTrans> GetRecentTransByHousehold(int householdId);
-        void UpdateAccountBalances(int accId); 
+        void UpdateAccountBalances(int accId);
+        bool IsInvitation(string inviteEmail);
 
         // auto procs
         Account SelectAccount(int id);
