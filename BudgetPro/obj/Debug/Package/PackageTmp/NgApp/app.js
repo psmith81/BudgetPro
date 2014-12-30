@@ -8,7 +8,6 @@
                   $rootScope.$stateParams = $stateParams;
 
                   authSvc.fillAuthData();
-
                   //console.log(authSvc.getUserInfo());
                     
                   //accountSvc.updateAcctBal(3);

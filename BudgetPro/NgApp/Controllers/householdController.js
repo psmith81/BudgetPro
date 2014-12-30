@@ -3,6 +3,8 @@
 
         $scope.household = "";
         $scope.joinHousehold = false;
+
+        $scope.invited = "from scope invited";
         
         $scope.getHoushold = householdSvc.getHousehold;
         //$scope.createHousehold = householdSvc.createHousehold;

@@ -4,6 +4,7 @@
         $scope.getAuth = authSvc.getAuth;
         $scope.household = "";
 
+
         $scope.getHoushold = householdSvc.getHousehold;
         
         $scope.getHoushold().then(function (data) {

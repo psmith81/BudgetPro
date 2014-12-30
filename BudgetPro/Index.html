@@ -54,10 +54,10 @@
                         <a ui-sref="about" href="">About!</a>
                     </li>
                 </ul>
-                <div  class="btn-group" dropdown>
+                <div class="btn-group" dropdown>
                     <ul class="nav navbar-nav">
                         <li class="dropdown-toggle" dropdown-toggle>
-                            <a class="dropdown-toggle"  href="#">Tools</a>
+                            <a class="dropdown-toggle" href="#">Tools</a>
                         </li>
                     </ul>
                     <ul class="dropdown-menu">
@@ -65,9 +65,12 @@
                         <li><a ui-sref="accounts" href="">Manage Accounts</a></li>
                     </ul>
                 </div>
-
+                <div class="nav navbar-nav pull-right" ng-controller="accessController">
+                    <ng-include src="'/NgApp/Views/partials/noticePartial.html'"> </ng-include>
                     <ng-include src="'/NgApp/Views/partials/accesspartial.html'"> </ng-include>
+                </div>
             </nav>
+        
         </div>
 
         <div ui-view class="view">

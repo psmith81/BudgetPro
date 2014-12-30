@@ -1,9 +1,12 @@
 ﻿'use strict';
-angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', function ($http, $q, localStorageService) {
+angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', '$interval', function ($http, $q, localStorageService, $interval) {
+
+    var notificationInterval;
+    var notificationIntervalTick = 300000;  // 300000 = five minutes
 
     //var serviceBase = 'http://localhost:60335/';
     var authServiceFactory = {};
-
+    
     var _authentication = {
         isAuth: false,
         userId: null,
@@ -63,6 +66,19 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
 
                 localStorageService.set('authorizationData', _authentication);
 
+                //get notifications manually o load
+                $http.get('/api/account/GetInvitations').then(function (response) {
+                    _authentication.notifications = response.data;
+                    
+                });
+                notificationInterval = $interval(function () {
+                    //check for invitations
+                        $http.get('/api/account/GetInvitations').then(function (response) {
+                            _authentication.notifications = response.data;
+                            
+                        });
+                }, notificationIntervalTick);
+
                 deferred.resolve(response);
             })
             .error(function (err, status) {
@@ -83,6 +99,7 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
         _authentication.token = "";
         userId: null;
         householdId: null;
+        $interval.cancel(notificationInterval);
     };
 
     var _fillAuthData = function () {
@@ -97,6 +114,17 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
             _authentication.email = authData.email;
             _authentication.phoneNumber = authData.phoneNumber;
             _authentication.householdId = authData.householdId;
+
+            //get notifications manually on load
+            $http.get('/api/account/GetInvitations').then(function (response) {
+                _authentication.notifications = response.data;
+            });
+            notificationInterval = $interval(function () {
+                //check for invitations
+                    $http.get('/api/account/GetInvitations').then(function (response) {
+                        _authentication.notifications = response.data;
+                    });
+            }, notificationIntervalTick);
         }
     };
 
@@ -159,6 +187,8 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
     authServiceFactory.getHousehold = _getHousehold;
     authServiceFactory.getUserId = _getUserId;
     authServiceFactory.getUserInfo = _getUserInfo;
+
+
 
     return authServiceFactory;
 }]);

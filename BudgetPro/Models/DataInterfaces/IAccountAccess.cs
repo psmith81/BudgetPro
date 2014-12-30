@@ -14,6 +14,9 @@ namespace BudgetPro.DataAccess
         void UpdateAccountBalances(int accId);
         bool IsInvitation(string inviteEmail);
 
+        
+        List<Invitation> GetInvitations(string email);
+
         // auto procs
         Account SelectAccount(int id);
         void DeleteAccount(int id);

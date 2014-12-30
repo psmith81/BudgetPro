@@ -1083,6 +1083,7 @@
     <Content Include="NgApp\Views\Home\newTransaction.html" />
     <Content Include="NgApp\Views\Home\recentTransactions.html" />
     <Content Include="NgApp\Views\partials\accesspartial.html" />
+    <Content Include="NgApp\Views\partials\noticePartial.html" />
     <Content Include="Template\0-base.html" />
     <Content Include="Template\calendar.html" />
     <Content Include="Template\charts.html" />

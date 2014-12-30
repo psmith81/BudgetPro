@@ -1,0 +1,13 @@
+﻿<!-- Notification Partial -->
+
+
+<div class="btn-group" dropdown ng-controller="invitationController" ng-show="notices().length > 0">
+    <ul class="nav navbar-nav bg-info">
+        <li class="dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
+            <a class="dropdown-toggle" href="">Notifications <span ng-if="notices().length > 0">({{notices().length}})</span></a>
+        </li>
+    </ul>
+    <ul class="dropdown-menu">
+        <li ng-repeat="notice in notices()"><a ng-click="" href="">From: {{notice.fromUserName}}, Regarding: {{notice.userHouse}}</a></li>
+    </ul>
+</div>

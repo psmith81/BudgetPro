@@ -3,17 +3,28 @@
 
         $scope.invitation = {
             Id: null,
-            FromUserId: null,
-            ToEmail: "joe"
+            FromUserName: "",
+            UserHouse: ""
         };
+        $scope.notices = authSvc.getNotifications;
 
         $scope.newInvite = function () {
-            console.log('found my way the newInvitation fuction')
+            //console.log('found my way the newInvitation fuction')
             $scope.invitation.FromUserId = authSvc.getUserId();
             accountSvc.newInvitation($scope.invitation).then(function () {
                 $state.go('home.dashboard');
             })
-
         }
 
+        //$scope.notice = function () {
+        //    console.log('Notice Controller');
+        //    console.log(authSvc.authentication.notifications);
+            
+        //    if (authSvc.authentication.notifications.length > 0) {
+        //        $scope.notice = true;
+        //    } else {
+        //        $scope.notice = false;
+        //    }
+        //    console.log('Leaving Notice Controller');
+        //}
     }]);

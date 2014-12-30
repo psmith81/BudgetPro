@@ -10,9 +10,9 @@ namespace BudgetPro.Models
     {
         public int Id { get; set; }
         //[Required]
-        public int FromUserId { get; set; }
+        public string FromUserName { get; set; }
         //[Required]
-        public string ToEmail { get; set; }
+        public string UserHouse { get; set; }
     }
 
    

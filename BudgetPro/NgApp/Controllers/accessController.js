@@ -1,10 +1,9 @@
-﻿angular.module('app').controller('accessController', [ '$scope', 'authSvc', 'accountSvc', 'householdSvc','$state', '$stateParams','$modal', '$log',
-    function ($scope, authSvc, accountSvc, householdSvc, $state, $stateParams, $modal, $log) {
+﻿angular.module('app').controller('accessController', [ '$http', '$scope', 'authSvc', 'accountSvc', 'householdSvc','$state', '$stateParams','$modal', '$log',
+    function ($http, $scope, authSvc, accountSvc, householdSvc, $state, $stateParams, $modal, $log) {
 
         // set up scope values and objects
         $scope.getAuth = authSvc.getAuth;
         $scope.getUser = authSvc.getUser;
-        $scope.invited = true;
 
         $scope.user = {
             Username: "",
@@ -17,11 +16,10 @@
         $scope.usrLogin = { userName: $scope.user.Username, password: $scope.user.Password };
 
 
+        
         // login functions
         $scope.login = function () {
             authSvc.login($scope.usrLogin).then(function () {
-                $scope.invited = accountSvc.isInvitation();
-                console.log('User has invitation: ' + $scope.invited);
                 household = authSvc.getHousehold();
                 //console.log('household: ' + household);
                 if (household == '') {

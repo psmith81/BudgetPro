@@ -96,5 +96,13 @@ namespace BudgetPro.Controllers
             var result = accounts.IsInvitation(user.Email);
             return result;
         }
+        [Route("GetInvitations")]
+        [HttpGet]
+        public List<Invitation> GetInvitations()
+        {
+            //var email = UserManager.GetEmail(HttpContext.Current.User.Identity.GetUserId<int>());
+            var user = UserManager.FindById(HttpContext.Current.User.Identity.GetUserId<int>());
+            return accounts.GetInvitations(user.Email);
+        }
     }
 }
