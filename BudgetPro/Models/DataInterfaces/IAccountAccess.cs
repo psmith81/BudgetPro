@@ -30,8 +30,8 @@ namespace BudgetPro.DataAccess
 
         Invitation SelectInvitation(int id);
         void DeleteInvitation(int id);
-        void UpdateInvitation(Invitation trans);
-        int InsertInvitation(Invitation trans);
+        void UpdateInvitation(NewInvitation trans);
+        int InsertInvitation(NewInvitation trans);
 
     }
 }

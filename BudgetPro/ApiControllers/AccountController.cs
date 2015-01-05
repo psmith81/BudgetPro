@@ -80,7 +80,7 @@ namespace BudgetPro.Controllers
 
         [Route("newInvitation")]
         [HttpPost]
-        public IHttpActionResult newInvitation(Invitation invite)
+        public IHttpActionResult newInvitation(NewInvitation invite)
         {
             var results = accounts.InsertInvitation(invite);
             return Ok(results);
@@ -96,6 +96,7 @@ namespace BudgetPro.Controllers
             var result = accounts.IsInvitation(user.Email);
             return result;
         }
+
         [Route("GetInvitations")]
         [HttpGet]
         public List<Invitation> GetInvitations()
@@ -103,6 +104,14 @@ namespace BudgetPro.Controllers
             //var email = UserManager.GetEmail(HttpContext.Current.User.Identity.GetUserId<int>());
             var user = UserManager.FindById(HttpContext.Current.User.Identity.GetUserId<int>());
             return accounts.GetInvitations(user.Email);
+        }
+
+        [Route("clearInvitation")]
+        [HttpPost]
+        public IHttpActionResult clearInvitation(int inviteId)
+        {
+            accounts.DeleteInvitation(inviteId);
+            return Ok();
         }
     }
 }

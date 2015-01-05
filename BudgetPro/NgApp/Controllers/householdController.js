@@ -4,7 +4,7 @@
         $scope.household = "";
         $scope.joinHousehold = false;
 
-        $scope.invited = "from scope invited";
+        $scope.invited = authSvc.getNotifications;
         
         $scope.getHoushold = householdSvc.getHousehold;
         //$scope.createHousehold = householdSvc.createHousehold;

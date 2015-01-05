@@ -11,7 +11,7 @@
                             <div class="padd">
                                 <!-- Create New Household -->
                                 <div class="row padd">
-                                    <p>Words to explain households.</p>
+                                    <p>Words to explain households. [{{invited().length > 0}}]</p>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-4">House Name:</label>
@@ -21,6 +21,7 @@
                                 </div>
                                 <div class="btn-group">
                                     <button class="btn btn-info" ng-submit title="Submit to create and join a new household.">Submit</button>
+                                    <button class="btn btn-default" ng-show="invited().length > 0">Invitation</button>
                                     <button type="button" class="btn btn-default" ui-sref="home.dashboard">Return</button>
                                 </div>
                             </div>

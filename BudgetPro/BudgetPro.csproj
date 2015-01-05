@@ -244,6 +244,7 @@
     <Compile Include="Models\Data\Dbo\Account.cs" />
     <Compile Include="Models\Data\Dbo\Household.cs" />
     <Compile Include="Models\Data\Dbo\Invitation.cs" />
+    <Compile Include="Models\Data\Dbo\NewInvitation.cs" />
     <Compile Include="Models\Data\Dbo\RecentTrans.cs" />
     <Compile Include="Models\Data\Dbo\Transaction.cs" />
     <Compile Include="Models\Data\Dbo\UserInfo.cs" />
