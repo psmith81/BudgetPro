@@ -5,13 +5,16 @@
                 <div class="row">
                     <div class="widget">
                         <div class="widget-head">
-                            <i class="fa fa-cogs"></i> Create a new Household
+                            <i class="fa fa-cogs"></i> Household
                         </div>
                         <div class="widget-content">
                             <div class="padd">
                                 <!-- Create New Household -->
                                 <div class="row padd">
                                     <p>Words to explain households. [{{invited().length > 0}}]</p>
+                                    <ul>
+                                        <li ng-repeat="notice in invited()"><a ng-click="acceptHousehold(notice)" href="">{{notice.id}}From: {{notice.fromUserName}}, Regarding: {{notice.userHouse}}</a></li>
+                                    </ul>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-4">House Name:</label>
@@ -21,7 +24,7 @@
                                 </div>
                                 <div class="btn-group">
                                     <button class="btn btn-info" ng-submit title="Submit to create and join a new household.">Submit</button>
-                                    <button class="btn btn-default" ng-show="invited().length > 0">Invitation</button>
+                                    <!--<button class="btn btn-default" ng-show="invited().length > 0">Invitation</button>-->
                                     <button type="button" class="btn btn-default" ui-sref="home.dashboard">Return</button>
                                 </div>
                             </div>

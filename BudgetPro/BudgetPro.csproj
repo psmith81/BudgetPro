@@ -1080,6 +1080,7 @@
     <Content Include="NgApp\Views\Home\home.dashboard.html" />
     <Content Include="NgApp\Views\Home\home.html" />
     <Content Include="NgApp\Views\Account\register.html" />
+    <Content Include="NgApp\Views\Home\joinhousehold.html" />
     <Content Include="NgApp\Views\Home\landing.html" />
     <Content Include="NgApp\Views\Home\newTransaction.html" />
     <Content Include="NgApp\Views\Home\recentTransactions.html" />

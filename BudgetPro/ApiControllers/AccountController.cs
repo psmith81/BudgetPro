@@ -108,7 +108,7 @@ namespace BudgetPro.Controllers
 
         [Route("clearInvitation")]
         [HttpPost]
-        public IHttpActionResult clearInvitation(int inviteId)
+        public IHttpActionResult clearInvitation([FromBody] int inviteId)
         {
             accounts.DeleteInvitation(inviteId);
             return Ok();

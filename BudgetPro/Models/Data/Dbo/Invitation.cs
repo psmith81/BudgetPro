@@ -12,6 +12,7 @@ namespace BudgetPro.Models
         //[Required]
         public string FromUserName { get; set; }
         //[Required]
+        public int HouseholdId { get; set; }
         public string UserHouse { get; set; }
     }
 

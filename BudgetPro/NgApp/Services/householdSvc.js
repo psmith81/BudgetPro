@@ -21,7 +21,12 @@ angular.module('app').factory('householdSvc', ['$http', 'authSvc', function ($ht
         }
     }
 
-    
+    factory.joinHousehold = function (householdId) {
+        return $http.post('api/authentication/joinHousehold', householdId)
+        .then(function (response) {
+            return response.data;
+        });
+    }
 
     return factory;
 }]);

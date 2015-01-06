@@ -72,6 +72,14 @@ namespace BudgetPro.Controllers
             return result;
         }
 
+        [Route("joinHousehold")]
+        [HttpPost]
+        public IHttpActionResult JoinHousehold([FromBody] int householdId)
+        {
+            _userData.AddUserToHousehold(HttpContext.Current.User.Identity.GetUserId<int>(), householdId);
+            return Ok();
+        }
+
         [Route("createHousehold")]
         [HttpPost]
         public int CreateHousehold(Household newHousehold)
