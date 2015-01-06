@@ -7,15 +7,10 @@
         $scope.invited = authSvc.getNotifications;
         
         $scope.getHoushold = householdSvc.getHousehold;
-        //$scope.createHousehold = householdSvc.createHousehold;
 
         $scope.createHousehold = function (Name) {
             householdSvc.createHousehold(Name).then(function () {
-                //authSvc.logOut();
-                //$state.go('login');
-                accountSvc.clearInvitation(invite.id);
                 authSvc.fillAuthData();
-                $http.get('/api/account/GetInvitations')
                 $state.go('home.dashboard');
             })
         }

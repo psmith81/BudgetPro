@@ -1,21 +1,29 @@
 ﻿<div ng-controller="householdController">
-    <form name="h" class="form-horizontal" ng-submit="createHousehold({Name: newHousehold})">
-        <div class="admin-form">
-            <div class="container">
-                <div class="row">
-                    <div class="widget">
-                        <div class="widget-head">
-                            <i class="fa fa-cogs"></i> Household
-                        </div>
-                        <div class="widget-content">
-                            <div class="padd">
-                                <!-- Create New Household -->
-                                <div class="row padd">
-                                    <p>Words to explain households. [{{invited().length > 0}}]</p>
-                                    <ul>
-                                        <li ng-repeat="notice in invited()"><a ng-click="acceptHousehold(notice)" href="">{{notice.id}}From: {{notice.fromUserName}}, Regarding: {{notice.userHouse}}</a></li>
-                                    </ul>
-                                </div>
+    <div class="admin-form">
+        <div class="container">
+            <div class="row">
+                <div class="widget">
+                    <div class="widget-head">
+                        <i class="fa fa-cogs"></i> Household
+                    </div>
+                    <div class="widget-content">
+                        <div class="padd">
+                            <div class="row padd" ng-show="!invited().length > 0" >
+                                <p>BugetPro organizes itself by households. It appears that you have successfully registered as a user but are not yet a member of a household. You may 
+                                create a new house here.  If you are expecting to join an existing household you have not yet received an invitation to do so.  Please check back later. </p>
+                            </div>
+                            <div ng-show="invited().length > 0">
+                                <p>BudgetPro organizes itself by households. It appears that you have successfully 
+                                registered as a user but are not yet a member of a household.  It also appears that 
+                                you have been invited to join a household.  Accept the invitation by clicking on the plus button:</p>
+                                <ul style="list-style-type:none">
+                                    <li ng-repeat="notice in invited()"><button title="Accept Invitation" class="btn btn-sm btn-info" ng-click="acceptHousehold(notice)" href="">+</button>
+                                        From: {{notice.fromUserName}}, Please Join: {{notice.userHouse}}</li>
+                                </ul>
+                                <p>Or Create your own household:</p>
+                            </div>
+                            <!-- Create New Household -->
+                           <form name="h" class="form-horizontal" ng-submit="createHousehold({Name: newHousehold})">
                                 <div class="form-group">
                                     <label class="control-label col-md-4">House Name:</label>
                                     <div class="col-md-8">
@@ -27,11 +35,11 @@
                                     <!--<button class="btn btn-default" ng-show="invited().length > 0">Invitation</button>-->
                                     <button type="button" class="btn btn-default" ui-sref="home.dashboard">Return</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 </div>
