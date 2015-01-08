@@ -3,6 +3,6 @@
         $scope.balRefresh = accountSvc.updateAcctBal;
         $scope.houseaccts = houseAccts;
         $scope.acctIsCol = false;
-        console.log(houseAccts);
+        //console.log(houseAccts);
     }]);
 

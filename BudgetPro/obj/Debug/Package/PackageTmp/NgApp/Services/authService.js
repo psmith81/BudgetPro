@@ -2,7 +2,7 @@
 angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', '$interval', function ($http, $q, localStorageService, $interval) {
 
     var notificationInterval;
-    var notificationIntervalTick = 300000;  // 300000 = five minutes
+    var notificationIntervalTick = 60000;  // 300000 = five minutes
 
     //var serviceBase = 'http://localhost:60335/';
     var authServiceFactory = {};
@@ -97,6 +97,7 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
         _authentication.name = "";
         _authentication.claims = null;
         _authentication.token = "";
+        _authentication.notifications = null;
         userId: null;
         householdId: null;
         $interval.cancel(notificationInterval);
@@ -123,6 +124,7 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
                 //check for invitations
                     $http.get('/api/account/GetInvitations').then(function (response) {
                         _authentication.notifications = response.data;
+                        console.log(response.data);
                     });
             }, notificationIntervalTick);
         }
@@ -175,6 +177,10 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
             return response.data;
         });
     }
+
+    var _getNotifications = function () {
+        return _authentication.notifications;
+    }
     
     
     authServiceFactory.register = _register;
@@ -187,6 +193,7 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
     authServiceFactory.getHousehold = _getHousehold;
     authServiceFactory.getUserId = _getUserId;
     authServiceFactory.getUserInfo = _getUserInfo;
+    authServiceFactory.getNotifications = _getNotifications;
 
 
 

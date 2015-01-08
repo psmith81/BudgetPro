@@ -1,0 +1,46 @@
+﻿<div ng-controller="catsController">
+ 
+        <div class="container">
+            <div class="row">
+                <!-- Widget Starts -->
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="widget">
+                        <div class="widget-head">
+                            <i class="fa fa-cogs"></i> Categories:
+                        </div>
+                        <div class="widget-content">
+                            <div class="padd">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="hidden">Id:</th>
+                                            <th>Name:</th>
+                                        </tr>
+                                    </thead>
+                                    <tr ng-repeat="cat in categories">
+                                        <td class="hidden">{{cat.id}}</td>
+                                        <td>{{cat.name}}</td>
+                                    </tr>
+                                </table>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <hr />
+                                    </div>
+                                </div>
+                                <form name="cform" class="form-horizontal" ng-submit="">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">New Category:</label>
+                                        <div class="col-md-7">
+                                            <input type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="widget-foot">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

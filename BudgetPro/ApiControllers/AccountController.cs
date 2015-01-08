@@ -113,5 +113,23 @@ namespace BudgetPro.Controllers
             accounts.DeleteInvitation(inviteId);
             return Ok();
         }
+
+        [Route("createCategory")]
+        [HttpPost]
+        public IHttpActionResult createCategory(Category cate)
+        {
+            var results = accounts.InsertCategory(cate);
+            return Ok(results);
+        }
+
+        [Route("getCategories")]
+        [HttpGet]
+        public IHttpActionResult getCategories()
+        {   
+            var household = GetHousehold();
+            //return accounts.GetCategoriesByHousehold(householdId);
+            var results = accounts.GetCategoriesByHousehold(household.Id);
+            return Ok(results);   
+        }
     }
 }

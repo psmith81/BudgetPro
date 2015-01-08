@@ -60,6 +60,7 @@
                         .when('accounts', '/accounts')
                          .when('household', '/household')
                          .when('invitation', '/invitation')
+                         .when('categories', '/categories')
                         .otherwise('/');
 
                      // Use $stateProvider to configure your states.
@@ -148,7 +149,10 @@
                            url: "/invitation",
                            templateUrl: '/NgApp/Views/Account/invitation.html'
                        })
-                     
+                       .state("categories", {
+                           url: "/categories",
+                           templateUrl: '/NgApp/Views/Home/categories.html'
+                       })
 
                      $httpProvider.defaults.withCredentials = true;
                      $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

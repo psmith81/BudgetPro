@@ -57,3 +57,7 @@ html{
 .clear {
     clear: both;
 }
+
+.mydropdown {
+    width:300px;
+}

@@ -66,6 +66,12 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
         })
     }
 
+    var _clearInvitation = function (inviteId) {
+        return $http.post('/api/account/clearInvitation', inviteId)
+        .then(function (responce) {
+            return responce.data;
+        })
+    }
 
 
     accountSvcFactory.addAccount = _addAccount;
@@ -75,6 +81,7 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
     accountSvcFactory.updateAcctBal = _updateAcctBal;
     accountSvcFactory.isInvitation = _isInvitation;
     accountSvcFactory.newInvitation = _newInvitation;
+    accountSvcFactory.clearInvitation = _clearInvitation;
 
     return accountSvcFactory;
 }]);

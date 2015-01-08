@@ -13,9 +13,8 @@ namespace BudgetPro.DataAccess
         List<RecentTrans> GetRecentTransByHousehold(int householdId);
         void UpdateAccountBalances(int accId);
         bool IsInvitation(string inviteEmail);
-
-        
         List<Invitation> GetInvitations(string email);
+        List<Category> GetCategoriesByHousehold(int householdId);
 
         // auto procs
         Account SelectAccount(int id);
@@ -30,8 +29,13 @@ namespace BudgetPro.DataAccess
 
         Invitation SelectInvitation(int id);
         void DeleteInvitation(int id);
-        void UpdateInvitation(NewInvitation trans);
-        int InsertInvitation(NewInvitation trans);
+        void UpdateInvitation(NewInvitation invite);
+        int InsertInvitation(NewInvitation invite);
+
+        Category SelectCategory(int id);
+        void DeleteCategory(int id);
+        void UpdateCategory(Category cate);
+        int InsertCategory(Category cate);
 
     }
 }

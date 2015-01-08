@@ -20,7 +20,6 @@
         // login functions
         $scope.login = function () {
             authSvc.login($scope.usrLogin).then(function () {
-                $scope.invited = "loging in";
                 household = authSvc.getHousehold();
                 //console.log('household: ' + household);
                 if (household == '') {

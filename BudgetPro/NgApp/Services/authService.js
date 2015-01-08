@@ -172,7 +172,8 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
 
     var _getUserInfo = function () {
         console.log('in getUserInfo');
-        return $http.post('/api/authentication/getUserInfo').then(function (response) {
+        return $http.post('/api/authentication/getUserInfo')
+            .then(function (response) {
             console.log(response.data);
             return response.data;
         });
