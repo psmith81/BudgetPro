@@ -2,7 +2,7 @@
 angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', '$interval', function ($http, $q, localStorageService, $interval) {
 
     var notificationInterval;
-    var notificationIntervalTick = 60000;  // 300000 = five minutes
+    var notificationIntervalTick = 300000;  // 300000 = five minutes, 60000 = 1 minute
 
     //var serviceBase = 'http://localhost:60335/';
     var authServiceFactory = {};

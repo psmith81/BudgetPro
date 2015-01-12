@@ -16,6 +16,9 @@ namespace BudgetPro.DataAccess
         List<Invitation> GetInvitations(string email);
         List<Category> GetCategoriesByHousehold(int householdId);
         List<CategorySum> GetTransSumByCatPeriod(int householdId, int period);
+        int GetAcctTransCount(int accountId);
+        List<TransactionExp> GetAcctTransactions(AcctTransParam aTParams);
+        //List<TransactionExp> GetAcctTransactions(int accountId, int rowoffset, int numrows);
 
         // auto procs
         Account SelectAccount(int id);

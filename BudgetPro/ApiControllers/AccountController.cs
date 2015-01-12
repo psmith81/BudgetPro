@@ -152,5 +152,26 @@ namespace BudgetPro.Controllers
             var results = accounts.SelectAccount(acctId);
             return Ok(results);
         }
+
+        [Route("getAcctTransCount")]
+        [HttpPost]
+        public IHttpActionResult getAcctTransCount([FromBody] int acctId)
+        {
+            var results = accounts.GetAcctTransCount(acctId);
+            return Ok(results);
+        }
+
+        [Route("getAcctTransactions")]
+        [HttpPost]
+        public IHttpActionResult getAcctTransactions(AcctTransParam aTParams)
+        {
+            //var accountId = aTParams.accountId;
+            //var rowoffset = aTParams.rowoffset;
+            //var numrows = aTParams.numrows;
+            //var results = accounts.GetAcctTransactions(accountId, rowoffset, numrows);
+            var results = accounts.GetAcctTransactions(aTParams);
+            
+            return Ok(results);
+        }
     }
 }

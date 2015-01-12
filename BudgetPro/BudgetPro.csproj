@@ -242,11 +242,13 @@
     <Compile Include="Models\DataInterfaces\IProfileAccess.cs" />
     <Compile Include="Models\DataInterfaces\IUserDataAccess.cs" />
     <Compile Include="Models\Data\Dbo\Account.cs" />
+    <Compile Include="Models\Data\Dbo\AcctTransParam.cs" />
     <Compile Include="Models\Data\Dbo\Category.cs" />
     <Compile Include="Models\Data\Dbo\Household.cs" />
     <Compile Include="Models\Data\Dbo\Invitation.cs" />
     <Compile Include="Models\Data\Dbo\NewInvitation.cs" />
     <Compile Include="Models\Data\Dbo\RecentTrans.cs" />
+    <Compile Include="Models\Data\Dbo\TransactionExp.cs" />
     <Compile Include="Models\Data\Dbo\Transaction.cs" />
     <Compile Include="Models\Data\Dbo\UserInfo.cs" />
     <Compile Include="Models\Stores\InsightUserStore.cs" />
