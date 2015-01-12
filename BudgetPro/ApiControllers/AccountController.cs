@@ -116,9 +116,13 @@ namespace BudgetPro.Controllers
 
         [Route("createCategory")]
         [HttpPost]
-        public IHttpActionResult createCategory(Category cate)
+        public IHttpActionResult createCategory(Category newCat)
         {
-            var results = accounts.InsertCategory(cate);
+            var household = GetHousehold();
+            //var cate = new Category();
+            newCat.HouseholdId = household.Id;
+            //cate.Name = newCat;
+            var results = accounts.InsertCategory(newCat);
             return Ok(results);
         }
 
@@ -130,6 +134,23 @@ namespace BudgetPro.Controllers
             //return accounts.GetCategoriesByHousehold(householdId);
             var results = accounts.GetCategoriesByHousehold(household.Id);
             return Ok(results);   
+        }
+
+        [Route("getCatSums")]
+        [HttpGet]
+        public IHttpActionResult getCatSums()
+        {
+            var household = GetHousehold();
+            var results = accounts.GetTransSumByCatPeriod(household.Id, 30);
+            return Ok(results);
+        }
+
+        [Route("getAccount")]
+        [HttpPost]
+        public IHttpActionResult getAccount([FromBody] int acctId)
+        {
+            var results = accounts.SelectAccount(acctId);
+            return Ok(results);
         }
     }
 }

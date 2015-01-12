@@ -11,4 +11,13 @@ namespace BudgetPro.Models
         public int HouseholdId { get; set; }
         public string Name { get; set; }
     }
+
+    public class CategorySum
+    {
+        public int Id { get; set; }
+        public int HouseholdId { get; set; }
+        public string Name { get; set; }
+        public int Count { get; set; }
+        public double Total { get; set; }
+    }
 }

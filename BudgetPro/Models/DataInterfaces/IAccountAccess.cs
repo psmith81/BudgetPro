@@ -15,6 +15,7 @@ namespace BudgetPro.DataAccess
         bool IsInvitation(string inviteEmail);
         List<Invitation> GetInvitations(string email);
         List<Category> GetCategoriesByHousehold(int householdId);
+        List<CategorySum> GetTransSumByCatPeriod(int householdId, int period);
 
         // auto procs
         Account SelectAccount(int id);

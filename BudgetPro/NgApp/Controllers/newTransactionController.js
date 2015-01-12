@@ -6,12 +6,12 @@
 
         $scope.selectedCat = "";
 
-        $scope.myCats = categorySvc.getCats;
+        $scope.getCats = categorySvc.getCats;
 
-        $scope.myCats().then(function (data) {
-            $scope.categories = data;
-            $scope.selectedCat = $scope.categories[0];
-        });
+        //$scope.myCats().then(function (data) {
+        //    $scope.categories = data;
+        //    $scope.selectedCat = $scope.categories[0];
+        //});
 
 
         $scope.newTrans = {

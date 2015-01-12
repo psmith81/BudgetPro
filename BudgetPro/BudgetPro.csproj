@@ -291,6 +291,7 @@
     <Content Include="js\ui-bootstrap-tpls-0.12.0.min.js" />
     <Content Include="NgApp\app.js" />
     <Content Include="NgApp\Controllers\accessController.js" />
+    <Content Include="NgApp\Controllers\accountController.js" />
     <Content Include="NgApp\Controllers\accountSummariesController.js" />
     <Content Include="NgApp\Controllers\categoriesController.js" />
     <Content Include="NgApp\Controllers\homeController.js" />
@@ -1077,8 +1078,10 @@
     <Content Include="NgApp\Views\Account\household.html" />
     <Content Include="NgApp\Views\Account\invitation.html" />
     <Content Include="NgApp\Views\Account\login.html" />
+    <Content Include="NgApp\Views\Home\accountDash.html" />
     <Content Include="NgApp\Views\Home\accounts.html" />
     <Content Include="NgApp\Views\Home\accountSummaries.html" />
+    <Content Include="NgApp\Views\partials\accountTransactions.html" />
     <Content Include="NgApp\Views\Home\categories.html" />
     <Content Include="NgApp\Views\Home\home.child.html" />
     <Content Include="NgApp\Views\Home\home.dashboard.html" />

@@ -1,17 +1,30 @@
-﻿angular.module('app').controller('catsController', ['$scope', 'categorySvc',
-    function ($scope, categorySvc) {
+﻿angular.module('app').controller('catsController', ['$scope', '$state', 'categorySvc',
+    function ($scope, $state, categorySvc) {
 
-        $scope.testit = "This is a test!"
-        $scope.status = {
-            isopen: false
-        };
         $scope.selectedCat = "";
+        $scope.newCatShow = true;
+        $scope.newCatob = {
+            id: null,
+            householdId: null,
+            name:""
+            };
 
-        $scope.myCats = categorySvc.getCats;
+        $scope.getCats = categorySvc.getCats;
 
-        $scope.myCats().then(function (data) {
-            $scope.categories = data;
-            $scope.selectedCat = $scope.categories[0];
-        });
+        $scope.makeCat = function (newCat) {
+            console.log("In makeCat Controller: [" + newCat + "].");
+            $scope.newCatob.name = newCat;
+            categorySvc.makeCat($scope.newCatob).then(function () {
+                categorySvc.refreshCats();
+                $state.go('home.dashboard');
+            })
+        }
+        
+        $scope.getCatSums = categorySvc.getCatSums;
+
+        //$scope.myCats().then(function (data) {
+        //    $scope.categories = data;
+        //    $scope.selectedCat = $scope.categories[0];
+        //});
 
     }]);

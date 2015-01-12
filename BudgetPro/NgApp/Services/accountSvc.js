@@ -61,18 +61,33 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
 
     var _newInvitation = function (invite) {
         return $http.post('/api/account/newInvitation', invite)
-        .then(function (responce) {
-            return responce.data;
+        .then(function (response) {
+            return response.data;
         })
     }
 
     var _clearInvitation = function (inviteId) {
         return $http.post('/api/account/clearInvitation', inviteId)
-        .then(function (responce) {
-            return responce.data;
+        .then(function (response) {
+            return response.data;
         })
     }
 
+    var _getAccount = function (acctId) {
+        return $http.post('/api/account/getAccount', acctId)
+        .then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
+    }
+
+    var _getAcctTransCount = function (acctId) {
+        return $http.post('/api/account/getAcctTransCount', acctId)
+        .then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
+    }
 
     accountSvcFactory.addAccount = _addAccount;
     accountSvcFactory.getAccountsByHousehold = _getAccountsByHousehold;
@@ -82,6 +97,7 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
     accountSvcFactory.isInvitation = _isInvitation;
     accountSvcFactory.newInvitation = _newInvitation;
     accountSvcFactory.clearInvitation = _clearInvitation;
+    accountSvcFactory.getAccount = _getAccount;
 
     return accountSvcFactory;
 }]);
