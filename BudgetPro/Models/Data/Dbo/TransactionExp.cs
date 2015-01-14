@@ -19,6 +19,7 @@ namespace BudgetPro.Models
         public bool Reconciled { get; set; }
         public int HouseholdId { get; set; }
         public string Category { get; set; }
+        public string UpdatedByUser { get; set; }
     }
 }
 

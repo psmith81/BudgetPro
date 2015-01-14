@@ -2,7 +2,7 @@
 angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', '$interval', function ($http, $q, localStorageService, $interval) {
 
     var notificationInterval;
-    var notificationIntervalTick = 60000;  // 300000 = five minutes
+    var notificationIntervalTick = 300000;  // 300000 = five minutes, 60000 = 1 minute
 
     //var serviceBase = 'http://localhost:60335/';
     var authServiceFactory = {};
@@ -172,7 +172,8 @@ angular.module('app').factory('authSvc', ['$http', '$q', 'localStorageService', 
 
     var _getUserInfo = function () {
         console.log('in getUserInfo');
-        return $http.post('/api/authentication/getUserInfo').then(function (response) {
+        return $http.post('/api/authentication/getUserInfo')
+            .then(function (response) {
             console.log(response.data);
             return response.data;
         });

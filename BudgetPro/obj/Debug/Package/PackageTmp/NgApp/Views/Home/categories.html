@@ -1,1 +1,62 @@
-﻿
+﻿<div ng-controller="catsController">
+ 
+        <div class="container">
+            <div class="row">
+                <!-- Widget Starts -->
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="widget">
+                        <div class="widget-head">
+                            <i class="fa fa-cogs"></i> Categories:
+                        </div>
+                        <div class="ui-widget-content">
+                            <div class="padd">
+                                <div ng-show="newCatShow">
+                                    <table class="table table-bordered" style="text-align:center">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th colspan="2" style="text-align:center">30 day Transaction Summary</th>
+                                            </tr>
+                                            <tr>
+                                                <th style="text-align:center">Category:</th>
+                                                <th style="text-align:center">Count:</th>
+                                                <th style="text-align:center">Total:</th>
+                                            </tr>
+                                        </thead>
+                                        <tr ng-repeat="cat in getCatSums()">
+                                            <td>{{cat.name}}</td>
+                                            <td>{{cat.count}}</td>
+                                            <td>{{cat.total | currency}}</td>
+                                        </tr>
+                                    </table>
+                                    <div class="row"><br /></div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-info" ng-click="newCatShow = !newCatShow">New Category</button>
+                                        <button type="button" class="btn btn-default" ui-sref="home.dashboard">Return</button>
+                                    </div>
+                                </div>
+                                <div ng-show="!newCatShow">
+                                    <div class="row">
+                                    </div>
+                                    <form name="cform" class="form-horizontal" ng-submit="makeCat(newCat)">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">New Category:</label>
+                                            <div class="col-md-7">
+                                                <input type="text" class="form-control" data-ng-model="newCat" />
+                                            </div>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-info">Create</button>
+                                            <button type="reset" class="btn btn-default" ng-click="newCatShow = !newCatShow">Cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-foot">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

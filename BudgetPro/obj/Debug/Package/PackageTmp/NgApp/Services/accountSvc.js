@@ -1,8 +1,10 @@
 ﻿'use strict'
 angular.module('app').factory('accountSvc', ['$http',  function ($http) {
 
-    //var serviceBase = 'http://localhost:60335/';
     var accountSvcFactory = {};
+
+    accountSvcFactory.acctTrans = {};
+
 
     var _addAccount = function (newaccount) {
         //console.log('addAccount factory');
@@ -61,18 +63,55 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
 
     var _newInvitation = function (invite) {
         return $http.post('/api/account/newInvitation', invite)
-        .then(function (responce) {
-            return responce.data;
+        .then(function (response) {
+            return response.data;
         })
     }
 
     var _clearInvitation = function (inviteId) {
         return $http.post('/api/account/clearInvitation', inviteId)
-        .then(function (responce) {
-            return responce.data;
+        .then(function (response) {
+            return response.data;
         })
     }
 
+    var _getAccount = function (acctId) {
+        return $http.post('/api/account/getAccount', acctId)
+        .then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
+    }
+
+    var _getAcctTransCount = function (acctId) {
+        return $http.post('/api/account/getAcctTransCount', acctId)
+        .then(function (response) {
+            console.log(response.data);
+            return response.data;
+        })
+    }
+
+    //Account Transactions:
+    var _selectAcctTransactions = function (aTParams) {
+        console.log("In getAcctTransactions with: ");
+        console.log(aTParams);
+        return $http.post('/api/account/getAcctTransactions', aTParams)
+    }
+
+    var _refreshAcctTransactions = function (aTParams) {
+        _selectAcctTransactions(aTParams).then(function (results) {
+            console.log("In refreshAcctTransactions with: ");
+            console.log(results.data);
+            accountSvcFactory.acctTrans = results.data;
+        })
+    }
+
+    //_refreshAcctTransactions(aTParams);
+
+    var _getAcctTransactions = function () {
+        console.log("getting acctTrans [" + accountSvcFactory.acctTrans + "]");
+        return accountSvcFactory.acctTrans;
+    }
 
     accountSvcFactory.addAccount = _addAccount;
     accountSvcFactory.getAccountsByHousehold = _getAccountsByHousehold;
@@ -82,6 +121,10 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
     accountSvcFactory.isInvitation = _isInvitation;
     accountSvcFactory.newInvitation = _newInvitation;
     accountSvcFactory.clearInvitation = _clearInvitation;
+    accountSvcFactory.getAccount = _getAccount;
+    accountSvcFactory.getAcctTransCount = _getAcctTransCount;
+    accountSvcFactory.getAcctTransactions = _getAcctTransactions;
+    accountSvcFactory.refreshAcctTransactions = _refreshAcctTransactions;
 
     return accountSvcFactory;
 }]);

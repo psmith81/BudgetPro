@@ -1083,6 +1083,7 @@
     <Content Include="NgApp\Views\Home\accountDash.html" />
     <Content Include="NgApp\Views\Home\accounts.html" />
     <Content Include="NgApp\Views\Home\accountSummaries.html" />
+    <Content Include="NgApp\Views\partials\transactionEdit.html" />
     <Content Include="NgApp\Views\partials\accountTransactions.html" />
     <Content Include="NgApp\Views\Home\categories.html" />
     <Content Include="NgApp\Views\Home\home.child.html" />

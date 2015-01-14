@@ -55,7 +55,7 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
     var _isInvitation = function () {
         return $http.post('/api/account/isInvitation')
         .then(function (response) {
-            console.log(response);
+            //console.log(response);
             return response.data.value;
         })
         

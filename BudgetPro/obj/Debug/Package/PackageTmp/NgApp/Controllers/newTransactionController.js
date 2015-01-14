@@ -1,8 +1,18 @@
-﻿angular.module('app').controller('newTransactionController', ['$scope', 'authSvc', 'accountSvc', '$state', '$stateParams',
-    function ($scope, authSvc, accountSvc, $state, $stateParams) {
+﻿angular.module('app').controller('newTransactionController', ['$scope', 'categorySvc', 'authSvc', 'accountSvc', '$state', '$stateParams',
+    function ($scope, categorySvc, authSvc, accountSvc, $state, $stateParams) {
 
         $scope.debit = true;
         $scope.selectedAcct = $stateParams.accountId;
+
+        $scope.selectedCat = "";
+
+        $scope.getCats = categorySvc.getCats;
+
+        //$scope.myCats().then(function (data) {
+        //    $scope.categories = data;
+        //    $scope.selectedCat = $scope.categories[0];
+        //});
+
 
         $scope.newTrans = {
             AccountId: null,
@@ -44,6 +54,7 @@
             $scope.newTrans.Updated = cd;
             $scope.newTrans.UpdatedByUserId = authSvc.getUserId();
             $scope.newTrans.HouseholdId = authSvc.getHousehold();
+            $scope.newTrans.CategoryId = $scope.selectedCat.id;
             //console.log($scope.newTrans)
             accountSvc.addTransaction($scope.newTrans).then(function () {
                 //accountSvc.updateAccountBalances($scope.newTrans.AccountId);

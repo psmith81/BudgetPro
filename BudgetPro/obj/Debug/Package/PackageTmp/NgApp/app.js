@@ -53,13 +53,14 @@
                        // If the url is ever invalid, e.g. '/asdf', then redirect to '/' aka the home state
                         .when('about', '/about')
                         .when('login', '/login')
-                        //.when('logOut', '/logOut')
                         .when('register', '/register')
                         .when('home', '/home')
                         .when('landing', '/landing')
                         .when('accounts', '/accounts')
-                         .when('household', '/household')
-                         .when('invitation', '/invitation')
+                        .when('accountDash', '/accountDash')
+                        .when('household', '/household')
+                        .when('invitation', '/invitation')
+                        .when('categories', '/categories')
                         .otherwise('/');
 
                      // Use $stateProvider to configure your states.
@@ -138,7 +139,12 @@
                        .state("newTransaction", {
                            url: "/accounts/:accountId/newTransaction",
                            templateUrl: '/NgApp/Views/Home/newtransaction.html',
-                           conroller: 'newTransactionController'
+                           controller: 'newTransactionController'
+                       })
+                       .state("accountDash", {
+                           url: "/accounts/:accountId/accountDash",
+                           templateUrl: '/NgApp/Views/Home/accountDash.html',
+                           controller: 'accountController'
                        })
                        .state("household", {
                            url: "/household",
@@ -148,7 +154,10 @@
                            url: "/invitation",
                            templateUrl: '/NgApp/Views/Account/invitation.html'
                        })
-                     
+                       .state("categories", {
+                           url: "/categories",
+                           templateUrl: '/NgApp/Views/Home/categories.html'
+                       })
 
                      $httpProvider.defaults.withCredentials = true;
                      $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
