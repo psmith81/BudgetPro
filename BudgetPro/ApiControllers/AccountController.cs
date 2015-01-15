@@ -60,6 +60,16 @@ namespace BudgetPro.Controllers
             return Ok(results);
         }
 
+        [Route("updateTransaction")]
+        [HttpPost]
+        public IHttpActionResult updateTransaction(Transaction trans)
+        {
+            //accounts.UpdateTransactionWithUpdate(trans);
+            accounts.UpdateTransaction(trans);
+            accounts.UpdateAccountBalances(trans.AccountId);
+            return Ok();
+        }
+
         [Route("getRecentTransByHousehold")]
         [HttpPost]
         public IHttpActionResult getRecentTransByHousehold()

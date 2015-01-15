@@ -2,10 +2,28 @@
     
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <h2 ><i>{{activeAccount.name}}</i> account</h2>
-            <h4>Balance: {{activeAccount.balance|currency}}, Reconciled Balance: {{activeAccount.reconciledBalance|currency}}</h4>
-            <ng-include src="'/NgApp/Views/partials/transactionEdit.html'"></ng-include>
+        <div class="col-md-4 sidepadd" >
+            <div class="row">
+                <div class="row">
+                    <div class="col-xm -12">
+                        <h2><i>{{activeAccount.name}}</i> account</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xm-12">
+                        <div class="widget">
+                            <div class="ui-widget-content" style="padding-left:15px">
+                                <h4>Balance: {{activeAccount.balance|currency}}<br /> Reconciled Balance: {{activeAccount.reconciledBalance|currency}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xm-12">
+                        <ng-include src="'/NgApp/Views/partials/transactionEdit.html'"></ng-include>
+                    </div>
+                </div>
+            </div> 
         </div>
         <div class="col-md-8">
     <ng-include src="'/NgApp/Views/partials/accountTransactions.html'"></ng-include>

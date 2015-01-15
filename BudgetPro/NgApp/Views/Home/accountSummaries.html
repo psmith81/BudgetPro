@@ -23,8 +23,8 @@
                     </tr>
                 </thead>
                 <tr ng-repeat="m in houseaccts">
-                    <td><button title="New Transaction" class="btn btn-sm" ui-sref="newTransaction({accountId: {{m.id}} })">+</button></td>
-                    <td><a ui-sref="accountDash({accountId: {{m.id}} })"><span class="label label-info">{{m.name}}</span></a></td>
+                    <td><button title="New Transaction" class="btn btn-xs" ui-sref="newTransaction({accountId: {{m.id}} })">+</button></td>
+                    <td><button class="btn btn-info btn-xs" style="width:100px" ui-sref="accountDash({accountId: {{m.id}} })">{{m.name}}</button></td>
                     <td>{{m.balance | currency}}</td>
                     <td>{{m.reconciledBalance | currency}}</td>
                 </tr>

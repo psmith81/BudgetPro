@@ -1,5 +1,5 @@
-﻿angular.module('app').controller('accountController', ['$scope', 'categorySvc', 'accountSvc', '$state', '$stateParams',
-    function ($scope, categorySvc, accountSvc, $state, $stateParams) {
+﻿angular.module('app').controller('accountController', ['$scope', 'categorySvc', 'accountSvc', 'authSvc', '$state', '$stateParams',
+    function ($scope, categorySvc, accountSvc, authSvc, $state, $stateParams) {
 
         $scope.atParams = {
             accountId: $stateParams.accountId,
@@ -9,12 +9,40 @@
         $scope.editTrans = null;
         $scope.selectedCat = null;
         $scope.showpage = null;
+        $scope.debit = null;
+        var Trans = {
+            Id: null,
+            AccountId: null,
+            Amount: null,
+            SignedAmount: null,
+            Date: null,
+            Description: null,
+            Updated: null,
+            UpdatedByUserId: null,
+            CategoryId: null,
+            Reconciled: null,
+            HouseholdId: null,
+        }
 
         $scope.selectTrans = function (transId) {   // used to select a transaction for editing
             //console.log("selectTrans:")
             $scope.editTrans = transId;
+            if (transId.signedAmount < 0)
+                $scope.debit = true;
+            else
+                $scope.debit = false;
             $scope.selectedCat = $scope.editTrans.categoryId;
             $scope.dt = $scope.editTrans.transDate;
+        }
+
+        $scope.updateRec = function (transId) {   // used to select a transaction for editing
+            console.log("updateRec:")
+            $scope.editTrans = transId;
+            if (transId.signedAmount < 0)
+                $scope.debit = true;
+            else
+                $scope.debit = false;
+            $scope.updateTransaction();
         }
  
         $scope.getCats = categorySvc.getCats;
@@ -35,6 +63,53 @@
             accountSvc.refreshAcctTransactions($scope.atParams);
         }
 
+        $scope.updateTransaction = function () {
+            console.log("updateTransactions");
+            console.log($scope.editTrans);
+            Trans.Id = $scope.editTrans.id;
+            Trans.AccountId = $scope.editTrans.accountId;
+            Trans.Amount = $scope.editTrans.amount;
+            Trans.SignedAmount = 1;
+            Trans.Date = $scope.editTrans.transDate;
+            Trans.Description = $scope.editTrans.description;
+            Trans.Updated = $scope.editTrans.updated;
+            Trans.UpdatedByUserId = authSvc.getUserId();
+            Trans.CategoryId = $scope.editTrans.categoryId;
+            Trans.Reconciled = $scope.editTrans.reconciled;
+            Trans.HouseholdId = $scope.editTrans.householdId;
+            console.log("CategoryId: [" + $scope.selectedCat + "]");
+            console.log($scope.selectedCat);
+            var cdf = new Date();
+            var cd = cdf.toDateString();
+            Trans.Updated = cd;
+            console.log($scope.debit);
+            if ($scope.debit === true) {
+                console.log("evaled true, making amount neg.");
+                Trans.SignedAmount = Math.abs(Number(Trans.Amount)) * -1;
+                $scope.editTrans.signedAmount = Trans.SignedAmount;
+            } else {
+                console.log("evaled false, making amount pos."  );
+                Trans.SignedAmount = Math.abs(Number(Trans.Amount));
+                $scope.editTrans.signedAmount = Trans.SignedAmount;
+            }
+            Trans.UpdatedByUserId = authSvc.getUserId();
+            console.log("updating with [" + Trans + "]");
+            console.log(Trans);
+            console.log($scope.selectedCat);
+            $scope.editTrans = "";
+            accountSvc.updateTransaction(Trans).then(function () {
+                
+                accountSvc.refreshAcctTransactions($scope.atParams);
+                accountSvc.getAccount($stateParams.accountId).then(function (results) {
+                    $scope.activeAccount = results;
+                })
+            }, function () {
+                console.log($scope.editTrans);
+                alert("Transacation failed.");
+                $state.go('home.dashboard');
+            })
+        };
+
         // Pagination
         var _paging = function () {
             $scope.activeAccount = accountSvc.getAccount($stateParams.accountId);
@@ -46,8 +121,6 @@
          _paging();
 
         $scope.changenumrows = function () {
-            //_paging();
-            //accountSvc.refreshAcctTransactions($scope.atParams);
             if ((Number($scope.atParams.numrows) > 0)) {
                 _paging();
                 $scope.atParams.rowoffset = 0;

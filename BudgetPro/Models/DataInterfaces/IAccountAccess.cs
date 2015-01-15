@@ -18,7 +18,7 @@ namespace BudgetPro.DataAccess
         List<CategorySum> GetTransSumByCatPeriod(int householdId, int period);
         int GetAcctTransCount(int accountId);
         List<TransactionExp> GetAcctTransactions(AcctTransParam aTParams);
-        //List<TransactionExp> GetAcctTransactions(int accountId, int rowoffset, int numrows);
+        void UpdateTransactionWithUpdate(Transaction trans);
 
         // auto procs
         Account SelectAccount(int id);

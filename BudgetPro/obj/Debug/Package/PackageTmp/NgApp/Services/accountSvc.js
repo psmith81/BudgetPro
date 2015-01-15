@@ -34,6 +34,10 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
             })
     }
 
+    var _updateTransaction = function (trans) {
+        return $http.post('/api/account/updateTransaction', trans);
+    }
+
     var _getRecentTransByHousehold = function () {
         //console.log('getRecentTransByHousehold');
         return $http.post('/api/account/getRecentTransByHousehold')
@@ -125,6 +129,7 @@ angular.module('app').factory('accountSvc', ['$http',  function ($http) {
     accountSvcFactory.getAcctTransCount = _getAcctTransCount;
     accountSvcFactory.getAcctTransactions = _getAcctTransactions;
     accountSvcFactory.refreshAcctTransactions = _refreshAcctTransactions;
+    accountSvcFactory.updateTransaction = _updateTransaction;
 
     return accountSvcFactory;
 }]);

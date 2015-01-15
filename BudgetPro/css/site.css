@@ -61,3 +61,8 @@ html{
 .mydropdown {
     width:300px;
 }
+
+.sidepadd {
+    padding-right:35px;
+    padding-left:35px;
+}
