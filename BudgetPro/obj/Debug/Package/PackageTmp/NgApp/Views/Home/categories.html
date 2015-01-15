@@ -8,7 +8,7 @@
                         <div class="widget-head">
                             <i class="fa fa-cogs"></i> Categories:
                         </div>
-                        <div class="ui-widget-content">
+                        <div class="">
                             <div class="padd">
                                 <div ng-show="newCatShow">
                                     <table class="table table-bordered" style="text-align:center">
@@ -30,10 +30,11 @@
                                         </tr>
                                     </table>
                                     <div class="row"><br /></div>
-                                    <div class="btn-group">
+                                    <div class="btn-group pull-right">
                                         <button class="btn btn-info" ng-click="newCatShow = !newCatShow">New Category</button>
                                         <button type="button" class="btn btn-default" ui-sref="home.dashboard">Return</button>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </div>
                                 <div ng-show="!newCatShow">
                                     <div class="row">
@@ -45,10 +46,11 @@
                                                 <input type="text" class="form-control" data-ng-model="newCat" />
                                             </div>
                                         </div>
-                                        <div class="btn-group">
+                                        <div class="btn-group pull-right">
                                             <button type="submit" class="btn btn-info">Create</button>
                                             <button type="reset" class="btn btn-default" ng-click="newCatShow = !newCatShow">Cancel</button>
                                         </div>
+                                        <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>

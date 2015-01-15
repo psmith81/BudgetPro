@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('app').factory('householdSvc', ['$http', 'authSvc', function ($http, authSvc) {
+angular.module('app').factory('householdSvc', ['$http', 'authSvc', 'categorySvc',function ($http, authSvc, categorySvc) {
 
     var factory = {};
 
@@ -16,6 +16,11 @@ angular.module('app').factory('householdSvc', ['$http', 'authSvc', function ($ht
         if (authSvc.authentication.householdId == "") {
             return $http.post('api/authentication/createHousehold', newHousehold)
             .then(function (response) {
+                categorySvc.makeCat({Id:null,householdId:null,Name:"Deposits"});
+                categorySvc.makeCat({Id:null,householdId:null,Name:"Cash"});
+                categorySvc.makeCat({Id:null,householdId:null,Name:"Bills"});
+                categorySvc.makeCat({ Id: null, householdId: null, Name: "Discretionary" });
+
                 return response.data;
             });
         }

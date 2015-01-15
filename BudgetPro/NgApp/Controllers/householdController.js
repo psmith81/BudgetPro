@@ -1,5 +1,5 @@
-﻿angular.module('app').controller('householdController', ['$scope', 'authSvc', 'householdSvc', 'accountSvc', '$state', '$stateParams', '$http',
-    function ($scope, authSvc, householdSvc, accountSvc, $state, $stateParams, $http) {
+﻿angular.module('app').controller('householdController', ['$scope', 'authSvc', 'householdSvc', 'accountSvc', 'categorySvc', '$state', '$stateParams', '$http',
+    function ($scope, authSvc, householdSvc, accountSvc, categorySvc, $state, $stateParams, $http) {
 
         $scope.household = "";
         $scope.joinHousehold = false;

@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tr ng-repeat="t in acctTransactions()">
-                <td><button title="Edit Transaction" class="btn btn-sm btn-info" ng-click="selectTrans(t)"><i>E{{t.id}}</i></button></td>
+                <td><button title="Edit Transaction" class="btn btn-sm btn-info" ng-click="selectTrans(t)"><i>E</i></button></td>
                 <td>{{t.transDate}}</td>
                 <td>{{t.signedAmount|currency}}</td>
                 <td>{{t.category}}</td>

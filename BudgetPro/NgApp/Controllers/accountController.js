@@ -46,6 +46,8 @@
         }
  
         $scope.getCats = categorySvc.getCats;
+        
+        categorySvc.refreshCats();
 
         $scope.activeAccountId = $stateParams.accountId;
         accountSvc.getAccount($stateParams.accountId).then(function (results) {

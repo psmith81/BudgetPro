@@ -9,7 +9,10 @@
             name:""
             };
 
+        categorySvc.refreshCats();
+
         $scope.getCats = categorySvc.getCats;
+        
 
         $scope.makeCat = function (newCat) {
             console.log("In makeCat Controller: [" + newCat + "].");

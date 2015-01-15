@@ -23,10 +23,11 @@
                                             <input type="text" class="form-control" ng-model="newacct.Balance">
                                         </div>
                                     </div>
-                                    <div class="btn-group">
+                                    <div class="btn-group pull-right">
                                         <button type="submit" class="btn btn-info">Create</button>
                                         <button type="reset" class="btn btn-default" ng-click="newAccShow = !newAccShow">Cancel</button>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </form>
                             </div>
                             <div ng-show="!newAccShow">
@@ -39,16 +40,18 @@
                                         </tr>
                                     </thead>
                                     <tr ng-repeat="m in houseaccts">
-                                        <td><a><i class="fa fa-trash"></i></a> {{m.name}}</td>
+                                        <!--<td><a><i class="fa fa-trash"></i></a> {{m.name}}</td>-->
+                                        <td><button class="btn btn-info btn-xs" style="width:150px" ui-sref="accountDash({accountId: {{m.id}} })">{{m.name}}</button></td>
                                         <td>{{m.balance | currency}}</td>
                                         <!--<td style="text-align:center"><input type="checkbox" ng-model="m.reconciledBalance" disabled /></td>-->
                                         <td>{{m.reconciledBalance | currency }}</td>
                                     </tr>
                                 </table>
-                                <div class="btn-group">
+                                <div class="btn-group pull-right">
                                     <button class="btn btn-info" ng-click="newAccShow = !newAccShow">New Account</button>
                                     <button type="button" class="btn btn-default" ui-sref="home.dashboard">Return</button>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
