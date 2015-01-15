@@ -1,9 +1,9 @@
 ﻿<div class="widget">
     <div class="widget-head">
-        Account Transactions:
+        Account Transactions: <span class="pull-right">Return rows: <input type="text" size="4" ng-model="atParams.numrows" ng-change="changenumrows(atParams)" /></span>
     </div>
     <div class="widget-content">
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>Edit</th>
@@ -15,13 +15,21 @@
                 </tr>
             </thead>
             <tr ng-repeat="t in acctTransactions()">
-                <td><button title="Edit Transaction" class="btn btn-sm" ui-sref="{{t.id}}"><i>E</i></button></td>
+                <td><button title="Edit Transaction" class="btn btn-sm btn-info" ng-click="selectTrans(t)"><i>E</i></button></td>
                 <td>{{t.transDate}}</td>
                 <td>{{t.signedAmount|currency}}</td>
                 <td>{{t.category}}</td>
                 <td>{{t.description}}</td>
-                <td><input type="checkbox" ng-model="t.reconciled"/></td>
+                <td><input type="checkbox" ng-model="t.reconciled" /></td>
             </tr>
         </table>
+    </div>
+    <div class="widget-foot">
+        <!--full set: {{acctTransCount}}, current offset: {{atParams.rowoffset}}, current numrows: {{atParams.numrows}}, show paging: {{showpage}}-->
+        <ul class="pagination pagination-sm pull-right" style="margin-right:25px" ng-show="showpage">
+            <li><a ng-click="prev()">Prev</a></li>
+            <li><a ng-click="next()">Next</a></li>
+        </ul>
+        <div class="clearfix"></div>
     </div>
 </div>

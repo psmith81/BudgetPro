@@ -4,12 +4,13 @@
         $scope.atParams = {
             accountId: $stateParams.accountId,
             rowoffset: 0,
-            numrows: 10
+            numrows: 7
         }
         $scope.editTrans = null;
         $scope.selectedCat = null;
+        $scope.showpage = null;
 
-        $scope.selectTrans = function (transId) {
+        $scope.selectTrans = function (transId) {   // used to select a transaction for editing
             //console.log("selectTrans:")
             $scope.editTrans = transId;
             $scope.selectedCat = $scope.editTrans.categoryId;
@@ -29,11 +30,44 @@
         })
         accountSvc.refreshAcctTransactions($scope.atParams);
 
-        //accountSvc.getAcctTransactions().then(function (results) {
-        //    $scope.acctTransactions = results;
-        //});
         $scope.acctTransactions = accountSvc.getAcctTransactions;
-        $scope.refreshAcctTransactions = accountSvc.refreshAcctTransactions;
+        $scope.refreshAcctTransactions = function () {
+            accountSvc.refreshAcctTransactions($scope.atParams);
+        }
+
+        // Pagination
+        var _paging = function () {
+            $scope.activeAccount = accountSvc.getAccount($stateParams.accountId);
+            if (Number($scope.acctTransCount) <= Number($scope.atParams.numrows))
+                $scope.showpage = false;
+            else
+                $scope.showpage = true;
+        }
+         _paging();
+
+        $scope.changenumrows = function () {
+            //_paging();
+            //accountSvc.refreshAcctTransactions($scope.atParams);
+            if ((Number($scope.atParams.numrows) > 0)) {
+                _paging();
+                $scope.atParams.rowoffset = 0;
+                accountSvc.refreshAcctTransactions($scope.atParams);
+            }
+        }
+
+        $scope.prev = function () {
+            $scope.atParams.rowoffset = Number($scope.atParams.rowoffset - $scope.atParams.numrows);
+            if ($scope.atParams.rowoffset < 0) {
+                $scope.atParams.rowoffset = 0;
+            }
+            accountSvc.refreshAcctTransactions($scope.atParams);
+        }
+        $scope.next = function () {
+            if (Number(($scope.atParams.rowoffset) + Number($scope.atParams.numrows )) <= Number($scope.acctTransCount)) {
+                $scope.atParams.rowoffset = Number($scope.atParams.rowoffset) + Number($scope.atParams.numrows);
+            }
+            accountSvc.refreshAcctTransactions($scope.atParams);
+        }
         
         // Date Picker Items
         $scope.minDate = "1/1/2010";

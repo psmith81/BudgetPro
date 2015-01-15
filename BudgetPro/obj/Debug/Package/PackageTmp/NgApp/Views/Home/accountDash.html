@@ -2,15 +2,20 @@
     
 <div class="container">
     <div class="row">
-        <div class="col-md-4"><h2 ><i>{{activeAccount.name}}</i> account</h2></div>
-        <div class="col-md-6"><h4>Balance: {{activeAccount.balance|currency}}, Reconciled Balance: {{activeAccount.reconciledBalance|currency}}</h4></div>
-    </div>
-    <div class="row">
         <div class="col-md-4">
-            <p>insert edit panel here</p>
+            <h2 ><i>{{activeAccount.name}}</i> account</h2>
+            <h4>Balance: {{activeAccount.balance|currency}}, Reconciled Balance: {{activeAccount.reconciledBalance|currency}}</h4>
+            <ng-include src="'/NgApp/Views/partials/transactionEdit.html'"></ng-include>
         </div>
         <div class="col-md-8">
-            <ng-include src="'/NgApp/Views/partials/accountTransactions.html'"></ng-include>
-        </div>
+    <ng-include src="'/NgApp/Views/partials/accountTransactions.html'"></ng-include>
+</div>
+        <!--<div class="col-md-6"></div>-->
     </div>
+    <!--<div class="row">
+        <div class="col-md-4">
+            
+        </div>
+        
+    </div>-->
 </div>
