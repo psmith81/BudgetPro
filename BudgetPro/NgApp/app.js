@@ -34,7 +34,7 @@
                                        authSvc.authentication.isAuth : true ) : true;
                       if (authorized == false) {
                           event.preventDefault();
-                          console.log('Not Authorized redirect to Login.');
+                          console.log('Not Authorized redirect to landing.');
                           $state.go('landing');
                       }
                   });

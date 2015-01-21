@@ -183,5 +183,14 @@ namespace BudgetPro.Controllers
             
             return Ok(results);
         }
+
+        [Route("addBudgetItem")]
+        [HttpPost]
+        public IHttpActionResult addBudgetItem(BudgetItem budItem)
+        {
+            var results = accounts.InsertBudgetItem(budItem);
+            return Ok(results);
+        }
+
     }
 }

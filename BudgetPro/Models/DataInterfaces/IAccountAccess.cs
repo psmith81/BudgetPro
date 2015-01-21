@@ -41,5 +41,9 @@ namespace BudgetPro.DataAccess
         void UpdateCategory(Category cate);
         int InsertCategory(Category cate);
 
+        BudgetItem SelectBudgetItem(int id);
+        void DeleteBudgetItem(int id);
+        void UpdateBudgetItem(BudgetItem budItem);
+        int InsertBudgetItem(BudgetItem budItem);
     }
 }
