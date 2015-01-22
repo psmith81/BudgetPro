@@ -10,6 +10,7 @@ namespace BudgetPro.Models
         public int Id { get; set; }
         public int HouseholdId { get; set; }
         public int CategoryId { get; set; }
+        public string Description { get; set; }
         public decimal Amount { get; set; }
         public bool Expense { get; set; }
         public int Period { get; set; }
