@@ -19,7 +19,8 @@ namespace BudgetPro.DataAccess
         int GetAcctTransCount(int accountId);
         List<TransactionExp> GetAcctTransactions(AcctTransParam aTParams);
         void UpdateTransactionWithUpdate(Transaction trans);
-        List<BudgetItemExp> GetBudgetItemsByHousehold(QueryBudgetItem query); 
+        List<BudgetItemExp> GetBudgetItemsByHousehold(QueryBudgetItem query);
+        List<BudgetCatStatus> GetBudgetStatus(int householdId);
 
         // auto procs
         Account SelectAccount(int id);

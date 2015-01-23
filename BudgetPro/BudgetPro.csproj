@@ -243,6 +243,7 @@
     <Compile Include="Models\DataInterfaces\IUserDataAccess.cs" />
     <Compile Include="Models\Data\Dbo\Account.cs" />
     <Compile Include="Models\Data\Dbo\AcctTransParam.cs" />
+    <Compile Include="Models\Data\Dbo\BudgetCatStatus.cs" />
     <Compile Include="Models\Data\Dbo\BudgetItem.cs" />
     <Compile Include="Models\Data\Dbo\BudgetItemExp.cs" />
     <Compile Include="Models\Data\Dbo\Category.cs" />
@@ -1086,6 +1087,7 @@
     <Content Include="NgApp\Views\Account\invitation.html" />
     <Content Include="NgApp\Views\Account\login.html" />
     <Content Include="NgApp\Views\Budget\budgetdash.html" />
+    <Content Include="NgApp\Views\Budget\budgetstatus.html" />
     <Content Include="NgApp\Views\Budget\budgettables.html" />
     <Content Include="NgApp\Views\Budget\newbudget.html" />
     <Content Include="NgApp\Views\Home\accountDash.html" />

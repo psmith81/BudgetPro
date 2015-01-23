@@ -9,6 +9,7 @@
             Expense: null,
             Period: null
         }
+        $scope.budgetStatus = null;
         $scope.expense = "expense";
         $scope.selectedCat = null;
         $scope.IncomeItems = null;
@@ -50,5 +51,7 @@
             budgetSvc.refreshExpenseItems();
             budgetSvc.refreshIncomeItems();
         }
+
+        $scope.budgetStatus = budgetSvc.getBudgetStatus;
 
     }])

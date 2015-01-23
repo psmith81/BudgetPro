@@ -207,5 +207,15 @@ namespace BudgetPro.Controllers
             accounts.DeleteBudgetItem(itemId);
             return Ok();
         }
+
+        [Route("getBudgetStatus")]
+        [HttpGet]
+        public IHttpActionResult getBudgetStatus()
+        {
+            var household = GetHousehold();
+            var results = accounts.GetBudgetStatus(household.Id);
+            return Ok(results);
+        }
+
     }
 }
