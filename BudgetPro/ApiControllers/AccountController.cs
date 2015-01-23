@@ -192,5 +192,20 @@ namespace BudgetPro.Controllers
             return Ok(results);
         }
 
+        [Route("getBudgetItems")]
+        [HttpPost]
+        public IHttpActionResult getBudgetItems(QueryBudgetItem query)
+        {
+            var results = accounts.GetBudgetItemsByHousehold(query);
+            return Ok(results);
+        }
+
+        [Route("deleteBudgetItem")]
+        [HttpPost]
+        public IHttpActionResult deleteBudgetItem([FromBody] int itemId)
+        {
+            accounts.DeleteBudgetItem(itemId);
+            return Ok();
+        }
     }
 }

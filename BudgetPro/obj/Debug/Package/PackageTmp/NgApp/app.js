@@ -34,7 +34,7 @@
                                        authSvc.authentication.isAuth : true ) : true;
                       if (authorized == false) {
                           event.preventDefault();
-                          console.log('Not Authorized redirect to Login.');
+                          console.log('Not Authorized redirect to landing.');
                           $state.go('landing');
                       }
                   });
@@ -61,6 +61,7 @@
                         .when('household', '/household')
                         .when('invitation', '/invitation')
                         .when('categories', '/categories')
+                         .when('budgetdash','/budgetDash')
                         .otherwise('/');
 
                      // Use $stateProvider to configure your states.
@@ -158,6 +159,10 @@
                            url: "/categories",
                            templateUrl: '/NgApp/Views/Home/categories.html'
                        })
+                     .state("budgetdash", {
+                         url: "/budgetdash",
+                         templateUrl: '/NgApp/Views/Budget/budgetdash.html'
+                     })
 
                      $httpProvider.defaults.withCredentials = true;
                      $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';

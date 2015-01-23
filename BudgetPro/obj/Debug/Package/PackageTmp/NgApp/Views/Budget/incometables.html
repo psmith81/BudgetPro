@@ -1,0 +1,47 @@
+﻿<div ng-controller="budgetController">
+    <div class="row">
+        <div class="widget">
+            <div class="ui-widget-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Monthly Amount</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="items in IncomeItems">
+                        <td>{{items.category}}</td>
+                        <td>{{items.description}}</td>
+                        <td>{{items.monthly|currency}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <br />
+    </div>
+    <div class="row">
+        <div class="widget">
+            <div class="ui-widget-content">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Monthly Amount</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="items in ExpenseItems">
+                        <td>{{items.category}}</td>
+                        <td>{{items.description}}</td>
+                        <td>{{items.monthly|currency}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--amount: 250category: "Bills"categoryId: 2description: "Utilities"expense: truehouseholdId: 1id: 3monthly: 250period: 12-->

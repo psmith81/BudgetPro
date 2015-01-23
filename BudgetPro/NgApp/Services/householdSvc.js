@@ -16,7 +16,7 @@ angular.module('app').factory('householdSvc', ['$http', 'authSvc', 'categorySvc'
         if (authSvc.authentication.householdId == "") {
             return $http.post('api/authentication/createHousehold', newHousehold)
             .then(function (response) {
-                categorySvc.makeCat({Id:null,householdId:null,Name:"Deposits"});
+                categorySvc.makeCat({Id:null,householdId:null,Name:"Income"});   // Changed from Deposit to Income
                 categorySvc.makeCat({Id:null,householdId:null,Name:"Cash"});
                 categorySvc.makeCat({Id:null,householdId:null,Name:"Bills"});
                 categorySvc.makeCat({ Id: null, householdId: null, Name: "Discretionary" });

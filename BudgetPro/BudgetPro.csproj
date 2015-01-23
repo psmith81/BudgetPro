@@ -244,10 +244,12 @@
     <Compile Include="Models\Data\Dbo\Account.cs" />
     <Compile Include="Models\Data\Dbo\AcctTransParam.cs" />
     <Compile Include="Models\Data\Dbo\BudgetItem.cs" />
+    <Compile Include="Models\Data\Dbo\BudgetItemExp.cs" />
     <Compile Include="Models\Data\Dbo\Category.cs" />
     <Compile Include="Models\Data\Dbo\Household.cs" />
     <Compile Include="Models\Data\Dbo\Invitation.cs" />
     <Compile Include="Models\Data\Dbo\NewInvitation.cs" />
+    <Compile Include="Models\Data\Dbo\QueryBudgetItem.cs" />
     <Compile Include="Models\Data\Dbo\RecentTrans.cs" />
     <Compile Include="Models\Data\Dbo\TransactionExp.cs" />
     <Compile Include="Models\Data\Dbo\Transaction.cs" />
@@ -1084,6 +1086,7 @@
     <Content Include="NgApp\Views\Account\invitation.html" />
     <Content Include="NgApp\Views\Account\login.html" />
     <Content Include="NgApp\Views\Budget\budgetdash.html" />
+    <Content Include="NgApp\Views\Budget\budgettables.html" />
     <Content Include="NgApp\Views\Budget\newbudget.html" />
     <Content Include="NgApp\Views\Home\accountDash.html" />
     <Content Include="NgApp\Views\Home\accounts.html" />
