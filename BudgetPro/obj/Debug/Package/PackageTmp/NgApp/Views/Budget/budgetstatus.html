@@ -21,8 +21,8 @@
                                     <tr>
                                         <th>Category</th>
                                         <th>Budgeted</th>
-                                        <th><i>Spending:</i> Current</th>
-                                        <th>Pervious Month's</th>
+                                        <th>Current</th>
+                                        <th>Pervious</th>
                                     </tr>
                                 </thead>
                                 <tr ng-repeat="item in budgetStatus()" ng-class="{true:'danger', false:''}[item.current > item.budgeted]">

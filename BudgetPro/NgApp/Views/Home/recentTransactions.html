@@ -6,11 +6,13 @@
     <div class="clearfix"></div>
 </div>
 <div collapse="transIsCol">
-    <div class="ui-widget-content">
+    <div class="ui-widget-content" >
         <hr />
         <div ng-repeat="t in recentrans">
-            {{t.date}} - {{t.user}} - {{t.category}} - {{t.amount| currency}}<br />
-            {{t.description}}
+            <div style="padding-left:1em">
+                {{t.date}} - {{t.user}} - {{t.amount| currency}} from {{t.account}}<br />
+                {{t.category}} - {{t.description}}
+            </div>
             <hr />
         </div>
 

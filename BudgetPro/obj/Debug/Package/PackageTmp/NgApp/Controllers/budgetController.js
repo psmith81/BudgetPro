@@ -9,6 +9,7 @@
             Expense: null,
             Period: null
         }
+        $scope.budgetStatus = null;
         $scope.expense = "expense";
         $scope.selectedCat = null;
         $scope.IncomeItems = null;
@@ -24,7 +25,7 @@
                 $scope.newBudgetItem.Expense = true;
             else
                 $scope.newBudgetItem.Expense = false;
-            console.log($scope.newBudgetItem);
+            //console.log($scope.newBudgetItem);
             budgetSvc.addBudgetItem($scope.newBudgetItem).then(function () {
                 $scope.expense = "expense";
                 $scope.selectedCat = null;
@@ -36,15 +37,21 @@
                     Expense: null,
                     Period: null
                 }
+                budgetSvc.refreshExpenseItems();
+                budgetSvc.refreshIncomeItems();
             })
         }
 
-        budgetSvc.getBudgetItems(0).then(function (results) {
-            //console.log(results.data);
-            $scope.IncomeItems = results;
-        })
+        $scope.IncomeItems = budgetSvc.getIncomeItems;
 
-        budgetSvc.getBudgetItems(1).then(function (results) {
-            $scope.ExpenseItems = results;
-        })
+        $scope.ExpenseItems = budgetSvc.getExpenseItems;
+
+        $scope.deleteItem = function (itemId) {
+            budgetSvc.deleteBudgetItem(itemId);
+            budgetSvc.refreshExpenseItems();
+            budgetSvc.refreshIncomeItems();
+        }
+
+        $scope.budgetStatus = budgetSvc.getBudgetStatus;
+
     }])
