@@ -1087,6 +1087,7 @@
     <Content Include="NgApp\Views\Account\invitation.html" />
     <Content Include="NgApp\Views\Account\login.html" />
     <Content Include="NgApp\Views\Budget\budgetdash.html" />
+    <Content Include="NgApp\Views\Budget\budgetgraph.html" />
     <Content Include="NgApp\Views\Budget\budgetstatus.html" />
     <Content Include="NgApp\Views\Budget\budgettables.html" />
     <Content Include="NgApp\Views\Budget\newbudget.html" />

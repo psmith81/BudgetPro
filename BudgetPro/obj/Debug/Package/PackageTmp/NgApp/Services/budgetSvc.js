@@ -58,18 +58,16 @@ angular.module('app').factory('budgetSvc', ['$http', 'authSvc', function ($http,
     var _selectBudgetStat = function () {
         return $http.get('/api/account/getBudgetStatus')
         .then(function (response) {
-            console.log(response.data);
-            return response.data;
+            //console.log(response.data);
+            _budgetStatus = response.data;
         })
     }
 
     var _refreshBudgetStat = function () {
-        _selectBudgetStat().then(function (response) {
-            _budgetStatus = response;
-        })
+        _selectBudgetStat();
     }
 
-    _refreshBudgetStat();
+    _selectBudgetStat();
 
     var _getBudgetStat = function () {
         return _budgetStatus;
@@ -83,6 +81,7 @@ angular.module('app').factory('budgetSvc', ['$http', 'authSvc', function ($http,
     factory.deleteBudgetItem = _deleteBudgetItem;
     factory.getBudgetStatus = _getBudgetStat;
     factory.refreshBudgetStatus = _refreshBudgetStat;
+    factory.budgetStatus = _budgetStatus;
 
     return factory;
 }]);

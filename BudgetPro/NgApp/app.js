@@ -161,7 +161,27 @@
                        })
                      .state("budgetdash", {
                          url: "/budgetdash",
-                         templateUrl: '/NgApp/Views/Budget/budgetdash.html'
+                         templateUrl: '/NgApp/Views/Budget/budgetdash.html',
+                         //resolve: {
+                         //    newBudgetItem: ['accountSvc', '$q', function (accountSvc, $q) {
+                         //        var newItem = {
+                         //            HouseholdId: null,
+                         //            CategoryId: null,
+                         //            Description: null,
+                         //            Amount: null,
+                         //            Expense: null,
+                         //            Period: null
+                         //        };
+                         //        var promise = $q.defer();
+
+                         //        accountSvc.GetHousehold().then(function(data)
+                         //        {
+                         //            newItem.HouseholdId = data;
+                         //            promise.resolve(newItem);
+                         //        })
+                         //        return promise;
+                         //    }]
+                         //}
                      })
 
                      $httpProvider.defaults.withCredentials = true;

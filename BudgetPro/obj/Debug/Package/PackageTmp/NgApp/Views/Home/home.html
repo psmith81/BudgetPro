@@ -17,13 +17,14 @@
                 </div>
                 <!-- Recent Transactions  -->
                 <div class="row">
-                    <div class="widget" ui-view="recentTransactions">
+                    <div class="widget" ui-view="recentTransactions" style="min-width:320px">
 
                     </div>
                 </div>
             </div>
             <!-- Budget Chart showing categories spending vs budget -->
             <div class="col-md-7">
+                <!--<ng-include src="'/NgApp/Views/Budget/budgetstatus.html'"></ng-include>-->
                 <ng-include src="'/NgApp/Views/Budget/budgetstatus.html'"></ng-include>
             </div>
         </div>
