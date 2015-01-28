@@ -48,23 +48,25 @@
                 <ul class="nav navbar-nav">
                     <li></li>
                     <li class="dropdown dropdown-big">
-                        <a ui-sref="home.dashboard" href="">Home!</a>
+                        <a ui-sref="home.dashboard" href="">Dashboard</a>
                     </li>
-                    <li class="dropdown dropdown-big">
+                    <!--<li class="dropdown dropdown-big">
                         <a ui-sref="about" href="">About!</a>
-                    </li>
+                    </li>-->
+                    <li><a ui-sref="accounts" href="">Accounts</a></li>
+                    <li><a ui-sref="budgetdash">Budgets</a></li>
                 </ul>
                 <div class="btn-group" dropdown>
                     <ul class="nav navbar-nav">
                         <li class="dropdown-toggle" dropdown-toggle>
-                            <a class="dropdown-toggle" href="#">Tools</a>
+                            <a class="dropdown-toggle" href="#">Other</a>
                         </li>
                     </ul>
                     <ul class="dropdown-menu">
                         <li><a ui-sref="invitation" href="">Invite</a></li>
-                        <li><a ui-sref="accounts" href="">Manage Accounts</a></li>
+                        
                         <li><a ui-sref="categories">Manage Categories</a></li>
-                        <li><a ui-sref="budgetdash">Manage Budget</a></li>
+                        
                     </ul>
                 </div>
                 <div class="nav navbar-nav pull-right" ng-controller="accessController">

@@ -26,12 +26,16 @@
                                             <th>Pervious Month's</th>
                                         </tr>
                                     </thead>
-                                    <tr ng-repeat="item in budgetStatus()" ng-class="{true:'danger', false:''}[item.current > item.budgeted]">
-                                        <td>{{item.category}}</td>
-                                        <td ng-show="graphtog"><div ng-if="item.category != 'Income'">{{$index+1}}</div></td>
-                                        <td>{{item.budgeted|currency}}</td>
-                                        <td>{{item.current|currency}}</td>
-                                        <td>{{item.previous|currency}}</td>
+                                    <tr ng-repeat="item in budgetStatus()" ng-if="item.category != 'Income'" ng-class="{true:'danger', false:''}[item.current > item.budgeted]">
+                                        
+                                            <td>{{item.category}}</td>
+                                            <td ng-show="graphtog">
+                                                {{$index+1}}
+                                            </td>
+                                            <td>{{item.budgeted|currency}}</td>
+                                            <td>{{item.current|currency}}</td>
+                                            <td>{{item.previous|currency}}</td>
+                                        
                                     </tr>
                                 </table>
                             </div>
@@ -39,8 +43,8 @@
                     </div>
                 </div>
                 <div class="widget-foot">
-                    <input type="checkbox" ng-model="graphtog" /> Show Graph:
-                    <input type="checkbox" ng-model="tabletog" /> Show Table:
+                    Show Graph: <input type="checkbox" ng-model="graphtog" /> | 
+                    Show Table: <input type="checkbox" ng-model="tabletog" /> 
                     <div class="clearfix"></div>
                 </div>
             </div>
