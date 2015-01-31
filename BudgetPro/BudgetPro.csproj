@@ -301,6 +301,7 @@
     <Content Include="NgApp\Controllers\accountSummariesController.js" />
     <Content Include="NgApp\Controllers\budgetController.js" />
     <Content Include="NgApp\Controllers\categoriesController.js" />
+    <Content Include="NgApp\Controllers\demoController.js" />
     <Content Include="NgApp\Controllers\homeController.js" />
     <Content Include="NgApp\Controllers\aboutController.js" />
     <Content Include="NgApp\Controllers\householdController.js" />
@@ -1090,6 +1091,7 @@
     <Content Include="NgApp\Views\Budget\budgetgraph.html" />
     <Content Include="NgApp\Views\Budget\budgetstatus.html" />
     <Content Include="NgApp\Views\Budget\budgettables.html" />
+    <Content Include="NgApp\Views\Budget\budgettotals.html" />
     <Content Include="NgApp\Views\Budget\newbudget.html" />
     <Content Include="NgApp\Views\Home\accountDash.html" />
     <Content Include="NgApp\Views\Home\accounts.html" />

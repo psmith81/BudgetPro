@@ -7,13 +7,12 @@
 </div>
 <div collapse="transIsCol">
     <div class="ui-widget-content" >
-        <hr />
         <div ng-repeat="t in recentrans">
             <div style="padding-left:1em">
                 {{t.date}} - {{t.user}} - {{t.amount| currency}} from {{t.account}}<br />
                 {{t.category}} - {{t.description}}
             </div>
-            <hr />
+            <hr ng-if="t != recentrans[recentrans.length-1]" />
         </div>
 
     </div>

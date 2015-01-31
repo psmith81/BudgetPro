@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="Controllers/demoController.js" />
+(function () {
     var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'LocalStorageModule'])
 
         .run(['$rootScope', '$state', '$stateParams', '$http', '$interval', 'authSvc', 'accountSvc',
@@ -127,7 +128,8 @@
                        })
                        .state("landing", {
                            url: "/landing",
-                           templateUrl: '/NgApp/Views/Home/landing.html'
+                           templateUrl: '/NgApp/Views/Home/landing.html',
+                           controller: 'demoController'
                        })
                        .state("accounts", {
                            url: "/accounts",

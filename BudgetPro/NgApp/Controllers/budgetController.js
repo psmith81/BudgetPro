@@ -16,6 +16,7 @@
         $scope.ExpenseItems = null;
         $scope.graphtog = true;
         $scope.tabletog = true;
+        $scope.additemtog = false;
 
         //var budstat = [];
 
@@ -85,6 +86,16 @@
                     plotwithoptions(d1,d2,d3);
                 }
             })
+
+        $scope.incomeTotal = function () {
+            //budgetSvc.refreshIncomeItems();
+            var objs = budgetSvc.getIncomeItems();
+            var t = 0.0;
+            for (i = 0; i < objs.length; i++) {
+                t = t+objs[i].monthly;
+            }
+            return t;
+        }
 
         var stack = false, bars = false, lines = false, steps = false;
 

@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="Controllers/demoController.js" />
+(function () {
     var app = angular.module('app', ['ui.router', 'ui.bootstrap', 'LocalStorageModule'])
 
         .run(['$rootScope', '$state', '$stateParams', '$http', '$interval', 'authSvc', 'accountSvc',
@@ -127,7 +128,8 @@
                        })
                        .state("landing", {
                            url: "/landing",
-                           templateUrl: '/NgApp/Views/Home/landing.html'
+                           templateUrl: '/NgApp/Views/Home/landing.html',
+                           controller: 'demoController'
                        })
                        .state("accounts", {
                            url: "/accounts",
@@ -140,28 +142,52 @@
                        .state("newTransaction", {
                            url: "/accounts/:accountId/newTransaction",
                            templateUrl: '/NgApp/Views/Home/newtransaction.html',
-                           controller: 'newTransactionController'
+                           controller: 'newTransactionController',
+                           data: {
+                               displayName: "newTransaction",
+                               authenticate: true
+                           }
                        })
                        .state("accountDash", {
                            url: "/accounts/:accountId/accountDash",
                            templateUrl: '/NgApp/Views/Home/accountDash.html',
-                           controller: 'accountController'
+                           controller: 'accountController',
+                           data: {
+                               displayName: "accountDash",
+                               authenticate: true
+                           }
                        })
                        .state("household", {
                            url: "/household",
-                           templateUrl: '/NgApp/Views/Account/household.html'
+                           templateUrl: '/NgApp/Views/Account/household.html',
+                           data: {
+                               displayName: "household",
+                               authenticate: true
+                           }
                        })
                        .state("invitation", {
                            url: "/invitation",
-                           templateUrl: '/NgApp/Views/Account/invitation.html'
+                           templateUrl: '/NgApp/Views/Account/invitation.html',
+                           data: {
+                               displayName: "invitation",
+                               authenticate: true
+                           }
                        })
                        .state("categories", {
                            url: "/categories",
-                           templateUrl: '/NgApp/Views/Home/categories.html'
+                           templateUrl: '/NgApp/Views/Home/categories.html',
+                           data: {
+                               displayName: "categories",
+                               authenticate: true
+                           }
                        })
                      .state("budgetdash", {
                          url: "/budgetdash",
                          templateUrl: '/NgApp/Views/Budget/budgetdash.html',
+                         data: {
+                             displayName: "budgetdash",
+                             authenticate: true
+                         }
                          //resolve: {
                          //    newBudgetItem: ['accountSvc', '$q', function (accountSvc, $q) {
                          //        var newItem = {

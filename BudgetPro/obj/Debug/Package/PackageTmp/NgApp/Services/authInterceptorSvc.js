@@ -16,7 +16,7 @@ angular.module('app').factory('authInterceptorSvc', ['$q', '$location', 'localSt
 
     var _responseError = function (rejection) {
         if (rejection.status === 401) {
-            $location.path('/login');
+            $location.path('/landing');
         }
         return $q.reject(rejection);
     }
