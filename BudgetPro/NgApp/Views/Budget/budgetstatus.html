@@ -23,7 +23,7 @@
                                             <th ng-show="graphtog">Bar</th>
                                             <th>Budgeted</th>
                                             <th><i>Spending:</i> Current</th>
-                                            <th>Pervious Month's</th>
+                                            <th>Previous Month's</th>
                                         </tr>
                                     </thead>
                                     <tr ng-repeat="item in budgetStatus()" ng-if="item.category != 'Income'" ng-class="{true:'danger', false:''}[item.current > item.budgeted]">
